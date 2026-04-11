@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ericka L. Edmond — Project Manager Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0d;
+    --cream: #faf8f4;
+    --warm: #f2ede4;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --gold-pale: #fdf6e3;
+    --slate: #3a3630;
+    --mid: #7a7267;
+    --muted: #b5ae9f;
+    --line: #e0d8cc;
+    --white: #ffffff;
+    --accent: #1a3a2f;
+    --accent2: #8b2c2c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,248,244,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 0; list-style: none; flex-wrap: wrap; }
+  .nav-links a {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--mid); text-decoration: none; padding: 0.4rem 0.85rem; border-radius: 20px;
+    transition: all 0.2s; cursor: pointer;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); background: var(--warm); }
+  section { display: none; padding: 80px 0 60px; min-height: 100vh; animation: fadeIn 0.4s ease; }
+  section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+  .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: var(--ink); }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--ink); }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); }
+  .lead { font-size: 1.05rem; color: var(--mid); line-height: 1.8; max-width: 620px; }
+  .gold-bar { width: 40px; height: 3px; background: var(--gold); margin: 1rem 0 1.5rem; }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.75rem; transition: box-shadow 0.2s, transform 0.2s; }
+  .card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  #home .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: calc(100vh - 80px); padding: 4rem 0; }
+  .stat-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; text-align: center; }
+  .stat-card .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--ink); line-height: 1; }
+  .stat-card .stat-num span { color: var(--gold); }
+  .stat-card .stat-label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+  .stat-card.featured { background: var(--ink); border-color: var(--ink); }
+  .stat-card.featured .stat-num { color: var(--gold); font-size: 2.4rem; }
+  .stat-card.featured .stat-label { color: var(--muted); }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; background: var(--gold-pale); color: var(--slate); border: 1px solid var(--gold-light); margin: 3px 3px 3px 0; }
+  .badge.dark { background: var(--ink); color: var(--gold); border-color: var(--ink); }
+  .badge.green { background: #e8f4ee; color: #1a3a2f; border-color: #b5d9c4; }
+  .project-tabs { display: flex; gap: 0; background: var(--warm); border-radius: 10px; padding: 4px; margin-bottom: 2rem; flex-wrap: wrap; }
+  .project-tab { flex: 1; min-width: 120px; padding: 0.6rem 1rem; border: none; background: transparent; border-radius: 7px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--mid); cursor: pointer; transition: all 0.2s; text-align: center; }
+  .project-tab.active { background: var(--white); color: var(--ink); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .project-detail { display: none; }
+  .project-detail.active { display: block; animation: fadeIn 0.3s ease; }
+  .project-header { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
+  .meta-item { background: var(--warm); border-radius: 8px; padding: 0.8rem 1rem; }
+  .meta-item .meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+  .meta-item .meta-val { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+  .issue-solution { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .issue-block { background: #fff8f8; border: 1px solid #f5d0d0; border-radius: 10px; padding: 1.25rem; }
+  .solution-block { background: #f3faf6; border: 1px solid #b5d9c4; border-radius: 10px; padding: 1.25rem; }
+  .block-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .issue-block .block-label { color: #a32d2d; }
+  .solution-block .block-label { color: #1a3a2f; }
+  .bullet-list { list-style: none; padding: 0; }
+  .bullet-list li { font-size: 13.5px; color: var(--slate); padding: 0.3rem 0 0.3rem 1.2rem; position: relative; line-height: 1.6; }
+  .bullet-list li::before { content: '—'; position: absolute; left: 0; color: var(--muted); font-size: 11px; top: 0.45rem; }
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  .plan-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .plan-card-header { padding: 1.25rem 1.5rem 1rem; border-bottom: 1px solid var(--line); }
+  .plan-day-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; line-height: 1; color: var(--gold); }
+  .plan-day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-top: 2px; }
+  .plan-card-body { padding: 1.25rem 1.5rem; }
+  .plan-goal { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.75rem; }
+  .plan-items { list-style: none; }
+  .plan-items li { font-size: 13px; color: var(--slate); padding: 0.45rem 0; border-bottom: 1px solid var(--line); display: flex; gap: 8px; line-height: 1.5; }
+  .plan-items li:last-child { border-bottom: none; }
+  .plan-items li::before { content: '○'; color: var(--gold); flex-shrink: 0; font-size: 10px; margin-top: 4px; }
+  .kanban-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; background: var(--warm); border-radius: 14px; padding: 1.25rem; }
+  .kanban-col { background: var(--white); border-radius: 10px; border: 1px solid var(--line); overflow: hidden; min-height: 300px; }
+  .kanban-col-header { padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+  .kanban-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); }
+  .kanban-count { font-size: 11px; font-weight: 600; background: var(--warm); color: var(--mid); border-radius: 10px; padding: 1px 7px; }
+  .kanban-cards { padding: 0.75rem; display: flex; flex-direction: column; gap: 8px; }
+  .kanban-card { background: var(--cream); border: 1px solid var(--line); border-radius: 7px; padding: 0.7rem 0.85rem; cursor: grab; transition: box-shadow 0.2s; }
+  .kanban-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+  .kanban-card.dragging { opacity: 0.4; }
+  .kanban-col.drag-over { background: var(--gold-pale); }
+  .kcard-title { font-size: 12.5px; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.4; }
+  .kcard-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .kcard-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 4px; }
+  .tag-high { background: #fde8e8; color: #a32d2d; }
+  .tag-med { background: #fef3e2; color: #854f0b; }
+  .tag-low { background: #e8f4ee; color: #1a3a2f; }
+  .tag-type { background: var(--warm); color: var(--mid); }
+  .kcard-assignee { font-size: 10px; color: var(--muted); margin-left: auto; }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .skill-cat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line); }
+  .skill-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; color: var(--slate); background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 5px 12px; margin: 3px 3px 3px 0; transition: all 0.2s; }
+  .skill-pill:hover { background: var(--gold-pale); border-color: var(--gold-light); color: var(--ink); }
+  .skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .docs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .doc-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.2s; }
+  .doc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .doc-preview { height: 180px; overflow: hidden; border-bottom: 1px solid var(--line); position: relative; }
+  .doc-preview-inner { padding: 1.25rem; transform: scale(0.7); transform-origin: top left; width: 143%; height: 257%; pointer-events: none; }
+  .doc-meta { padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+  .doc-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .doc-type { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 1px; }
+  .doc-open-btn { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: var(--gold-pale); border: 1px solid var(--gold-light); border-radius: 6px; padding: 5px 10px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .doc-open-btn:hover { background: var(--gold); color: var(--white); border-color: var(--gold); }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,14,13,0.65); z-index: 200; align-items: center; justify-content: center; padding: 2rem; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--white); border-radius: 16px; width: 100%; max-width: 820px; max-height: 90vh; overflow-y: auto; animation: fadeIn 0.25s ease; }
+  .modal-header { position: sticky; top: 0; background: var(--white); border-bottom: 1px solid var(--line); padding: 1.25rem 1.75rem; display: flex; align-items: center; justify-content: space-between; z-index: 1; }
+  .modal-close { width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--cream); cursor: pointer; font-size: 16px; color: var(--mid); display: flex; align-items: center; justify-content: center; }
+  .modal-body { padding: 1.75rem; }
+  .raci-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 1.5rem; }
+  .raci-table th { background: var(--ink); color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .raci-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--line); color: var(--slate); vertical-align: middle; }
+  .raci-table tr:hover td { background: var(--warm); }
+  .raci-badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; font-size: 11px; font-weight: 800; }
+  .raci-R { background: #1a3a2f; color: #fff; }
+  .raci-A { background: #c9a84c; color: #fff; }
+  .raci-C { background: #e8f4ee; color: #1a3a2f; }
+  .raci-I { background: var(--warm); color: var(--mid); }
+  .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  .value-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; transition: all 0.2s; }
+  .value-card:hover { border-color: var(--gold-light); box-shadow: 0 4px 20px rgba(201,168,76,0.1); }
+  .value-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .value-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .value-desc { font-size: 13px; color: var(--mid); line-height: 1.7; }
+  .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .progress-label { font-size: 12.5px; color: var(--slate); min-width: 140px; }
+  .progress-bar-wrap { flex: 1; height: 6px; background: var(--warm); border-radius: 4px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width 1s ease; }
+  .progress-pct { font-size: 11px; font-weight: 600; color: var(--muted); min-width: 32px; text-align: right; }
+  .status-table { width: 100%; border-collapse: collapse; }
+  .status-table th { background: var(--ink); color: var(--cream); font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 1rem; text-align: left; }
+  .status-table td { padding: 0.55rem 1rem; border-bottom: 1px solid var(--line); font-size: 12.5px; color: var(--slate); }
+  .status-table tr:hover td { background: var(--warm); }
+  .status-dot { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; }
+  .status-dot::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; }
+  .status-dot.green::before { background: #2d9c5e; }
+  .status-dot.amber::before { background: #c9a84c; }
+  .status-dot.red::before { background: #c0392b; }
+  .divider { height: 1px; background: var(--line); margin: 2.5rem 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+  /* EXTRA SECTIONS */
+  .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .insight-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; border-top: 3px solid var(--gold); }
+  .insight-num { font-family: 'Playfair Display', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .insight-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+  .insight-body { font-size: 13px; color: var(--mid); line-height: 1.7; }
+
+  .comm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .comm-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; }
+  .comm-who { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+  .comm-style { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+  .comm-tools { font-size: 12px; color: var(--muted); margin-bottom: 0.75rem; }
+  .comm-quote { font-size: 13px; color: var(--slate); font-style: italic; border-left: 2px solid var(--gold); padding-left: 0.75rem; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .hero-grid, .plan-grid, .skills-grid, .issue-solution, .project-header,
+    .value-grid, .docs-grid, .two-col, .three-col, .insight-grid, .comm-grid { grid-template-columns: 1fr; }
+    .kanban-board { grid-template-columns: repeat(2, 1fr); }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ericka L. <span>Edmond</span></div>
+  <ul class="nav-links">
+    <li><a onclick="showSection('home')" class="active" id="nav-home">Overview</a></li>
+    <li><a onclick="showSection('projects')" id="nav-projects">Projects</a></li>
+    <li><a onclick="showSection('plan')" id="nav-plan">30·60·90</a></li>
+    <li><a onclick="showSection('kanban')" id="nav-kanban">Kanban</a></li>
+    <li><a onclick="showSection('skills')" id="nav-skills">Skills</a></li>
+    <li><a onclick="showSection('docs')" id="nav-docs">Documents</a></li>
+    <li><a onclick="showSection('value')" id="nav-value">Value</a></li>
+    <li><a onclick="showSection('leadership')" id="nav-leadership">Leadership</a></li>
+  </ul>
+</nav>
+
+<!-- ==================== HOME ==================== -->
+<section id="home" class="active">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="section-eyebrow">Project Manager · PMP-Ready</div>
+        <h1>Ericka L.<br>Edmond</h1>
+        <div class="gold-bar"></div>
+        <p class="lead">Results-driven Project Manager with 8+ years leading technology and infrastructure initiatives in Finance, Healthcare, and Transit. I bridge technical teams and business stakeholders to deliver on time, on budget, and beyond expectation.</p>
+        <div style="margin-top:1.75rem; display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="badge dark">Agile & Waterfall</span>
+          <span class="badge dark">ERP / CRM Integration</span>
+          <span class="badge dark">EHR Optimization</span>
+          <span class="badge dark">Regulated Industries</span>
+        </div>
+        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="mailto:ErickaEdmond@Gmail.Com" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:8px 16px;background:var(--white);">✉ ErickaEdmond@Gmail.Com</a>
+          <a href="tel:4048527334" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:8px 16px;background:var(--white);">📞 (404) 852-7334</a>
+        </div>
+      </div>
+      <div>
+        <div class="stat-card featured">
+          <div class="stat-num"><span>8+</span></div>
+          <div class="stat-label">Years of PM Experience</div>
+        </div>
+        <div style="height:12px;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="stat-card"><div class="stat-num">15<span>+</span></div><div class="stat-label">Concurrent Projects</div></div>
+          <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Budget Overruns</div></div>
+          <div class="stat-card"><div class="stat-num">99<span>.99%</span></div><div class="stat-label">System Uptime</div></div>
+          <div class="stat-card"><div class="stat-num">50<span>k+</span></div><div class="stat-label">Families Impacted</div></div>
+          <div class="stat-card" style="grid-column:span 2;"><div class="stat-num">20<span>%</span></div><div class="stat-label">Post-Launch Ticket Reduction</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROJECTS ==================== -->
+<section id="projects">
+  <div class="container">
+    <div class="section-eyebrow">Portfolio</div>
+    <h2>Projects & Case Studies</h2>
+    <div class="gold-bar"></div>
+    <div class="project-tabs">
+      <button class="project-tab active" onclick="showProject('salesforce',this)">Salesforce / SAP</button>
+      <button class="project-tab" onclick="showProject('cisco',this)">Cisco / Bank of America</button>
+      <button class="project-tab" onclick="showProject('choa',this)">Children's Healthcare</button>
+      <button class="project-tab" onclick="showProject('amtrak',this)">Amtrak</button>
+    </div>
+
+    <div class="project-detail active" id="proj-salesforce">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Dec 2024 – Jun 2025</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">SAP S/4HANA × Salesforce Service Cloud Integration</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">End-to-end Finance and Customer Service data unification for enterprise-scale ERP-to-CRM pipeline.</p>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">6 months</div></div>
+            <div class="meta-item"><div class="meta-label">Team Size</div><div class="meta-val">~25 people</div></div>
+            <div class="meta-item"><div class="meta-label">Users Impacted</div><div class="meta-val">200+</div></div>
+            <div class="meta-item"><div class="meta-label">Methodology</div><div class="meta-val">Agile / SAFe</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Led the complete integration lifecycle from discovery through global rollout, aligning SAP developers, Salesforce architects, Finance, and Customer Service stakeholders under a unified delivery roadmap.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Challenges</div>
+          <ul class="bullet-list">
+            <li>Siloed data between Finance (SAP) and Customer Service (Salesforce) causing billing discrepancies</li>
+            <li>No standardized API contract between middleware layers — MuleSoft vs Boomi alignment needed</li>
+            <li>Complex data mapping for service orders and billing cycles across systems</li>
+            <li>200+ global users required training with minimal downtime tolerance</li>
+            <li>Risk of data integrity loss during live ERP-to-CRM migration</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Solutions Delivered</div>
+          <ul class="bullet-list">
+            <li>Facilitated cross-functional discovery sessions to define API requirements and middleware logic</li>
+            <li>Directed complex field-level data mapping ensuring 100% data integrity across pipeline</li>
+            <li>Orchestrated UAT planning and execution with structured defect tracking and sign-off gates</li>
+            <li>Authored comprehensive training modules that reduced post-launch support tickets by 20%</li>
+            <li>Maintained a live RAID log throughout, enabling proactive risk resolution</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h3 style="font-size:1rem;margin-bottom:1rem;">What I Brought to This Team</h3>
+      <div class="three-col">
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Technical Bridge</div>
+          <p style="font-size:13px;color:var(--mid);">Translated SAP/Salesforce technical requirements into stakeholder-ready roadmaps and vice versa</p>
+        </div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Change Management</div>
+          <p style="font-size:13px;color:var(--mid);">Designed training rollout that drove user adoption and measurably reduced support burden</p>
+        </div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Delivery Discipline</div>
+          <p style="font-size:13px;color:var(--mid);">Zero scope creep through rigorous backlog management and sprint-level milestone tracking</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-detail" id="proj-cisco">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Sep 2022 – Aug 2024</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">Bank of America Infrastructure Program</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">Enterprise-scale network refresh and server migration for a Tier-1 global financial institution.</p>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">24 months</div></div>
+            <div class="meta-item"><div class="meta-label">Projects</div><div class="meta-val">15+ concurrent</div></div>
+            <div class="meta-item"><div class="meta-label">Sector</div><div class="meta-val">Financial</div></div>
+            <div class="meta-item"><div class="meta-label">Budget</div><div class="meta-val">$0 overrun</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Directed a portfolio of 15+ concurrent infrastructure workstreams for one of the world's largest banks, enforcing enterprise security standards while maintaining 99.99% uptime during critical hardware transitions.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Challenges</div>
+          <ul class="bullet-list">
+            <li>Managing 15+ concurrent projects with competing priorities and shared engineering resources</li>
+            <li>Strict security compliance requirements for Tier-1 banking infrastructure</li>
+            <li>Hardware procurement complexity and vendor coordination at enterprise scale</li>
+            <li>Zero-downtime requirement during critical server migrations and network refreshes</li>
+            <li>Stakeholder alignment across global infrastructure and security teams</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Solutions Delivered</div>
+          <ul class="bullet-list">
+            <li>Built and maintained a centralized RAID log serving as single source of truth for all workstreams</li>
+            <li>Created detailed technical requirement docs translating engineering needs into executive roadmaps</li>
+            <li>Implemented resource leveling model to prevent bottlenecks across concurrent projects</li>
+            <li>Achieved 99.99% system uptime through phased migration planning and rollback protocols</li>
+            <li>Zero budget overruns across all hardware procurement and vendor contracts</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h3 style="font-size:1rem;margin-bottom:1rem;">What I Brought to This Team</h3>
+      <div class="three-col">
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Portfolio Oversight</div>
+          <p style="font-size:13px;color:var(--mid);">Managed 15+ simultaneous workstreams with unified tracking and transparent stakeholder reporting</p>
+        </div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Risk Mitigation</div>
+          <p style="font-size:13px;color:var(--mid);">Proactive RAID management ensured issues were identified and resolved before escalation</p>
+        </div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Financial Discipline</div>
+          <p style="font-size:13px;color:var(--mid);">Zero budget overruns through rigorous vendor management and procurement forecasting</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-detail" id="proj-choa">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Mar 2019 – Mar 2021</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">Clinical EHR Integration & Patient Portal Optimization</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">Epic EHR integration enabling real-time clinical data access for 50k+ families at Children's Healthcare of Atlanta.</p>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">24 months</div></div>
+            <div class="meta-item"><div class="meta-label">Families Served</div><div class="meta-val">50,000+</div></div>
+            <div class="meta-item"><div class="meta-label">Budget</div><div class="meta-val">$500K+</div></div>
+            <div class="meta-item"><div class="meta-label">Compliance</div><div class="meta-val">HIPAA/HITECH</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Led cross-functional EHR integration between a specialized Patient Portal and Epic, improving clinical workflows and digital access while maintaining strict healthcare data compliance across the hospital network.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Challenges</div>
+          <ul class="bullet-list">
+            <li>Complex Epic integration with a specialized patient portal across pediatric care systems</li>
+            <li>Strict HIPAA/HITECH compliance requirements for all digital touchpoints handling PHI</li>
+            <li>Clinical staff workflow disruption risk during digital intake process changes</li>
+            <li>Managing $500K+ vendor budget with multiple SLA commitments</li>
+            <li>Gaining clinical team buy-in for new technology processes</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Solutions Delivered</div>
+          <ul class="bullet-list">
+            <li>Conducted "day-in-the-life" clinical observations to identify real workflow pain points before design</li>
+            <li>Ensured 100% HIPAA/HITECH compliance across all integrated digital touchpoints</li>
+            <li>Optimized digital intake processes reducing patient wait times by 15%</li>
+            <li>Enforced SLAs and maintained bi-weekly milestone cadence with vendor teams</li>
+            <li>Delivered access to real-time clinical data for 50,000+ families</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h3 style="font-size:1rem;margin-bottom:1rem;">What I Brought to This Team</h3>
+      <div class="three-col">
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Human-Centered Design</div>
+          <p style="font-size:13px;color:var(--mid);">On-site clinical observations ensured solutions addressed real workflow friction, not just technical specs</p>
+        </div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Compliance Leadership</div>
+          <p style="font-size:13px;color:var(--mid);">Navigated HIPAA/HITECH requirements ensuring zero compliance gaps across the hospital network</p>
+        </div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Vendor Management</div>
+          <p style="font-size:13px;color:var(--mid);">Managed $500K+ budget with rigorous SLA enforcement and milestone accountability</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-detail" id="proj-amtrak">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Jan 2017 – Dec 2018</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">Regional Transit Infrastructure & Capital Improvement Program</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">System administration supporting regional transit infrastructure and long-term capital improvement alignment.</p>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">24 months</div></div>
+            <div class="meta-item"><div class="meta-label">Sector</div><div class="meta-val">Transit / Gov</div></div>
+            <div class="meta-item"><div class="meta-label">Role</div><div class="meta-val">Sys Admin</div></div>
+            <div class="meta-item"><div class="meta-label">Focus</div><div class="meta-val">Infrastructure</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Supported regional transit infrastructure and capital improvement programs, ensuring technical alignment with long-term transportation goals. This role built the operational discipline and infrastructure knowledge that underpins later PM work.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Challenges</div>
+          <ul class="bullet-list">
+            <li>Aging transit infrastructure requiring ongoing technical maintenance and documentation</li>
+            <li>Capital improvement programs with multi-year planning horizons and shifting priorities</li>
+            <li>Coordinating technical support across distributed regional infrastructure</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Contributions</div>
+          <ul class="bullet-list">
+            <li>Maintained technical alignment between system operations and capital improvement roadmaps</li>
+            <li>Developed working knowledge of regulated infrastructure environments and compliance requirements</li>
+            <li>Built systems thinking and technical foundation that accelerated transition to PM roles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 30-60-90 ==================== -->
+<section id="plan">
+  <div class="container">
+    <div class="section-eyebrow">Onboarding Strategy</div>
+    <h2>30 · 60 · 90 Day Plan</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">A structured ramp-up designed to deliver value from day one — listening first, then contributing, then leading.</p>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-card-header">
+          <div class="plan-day-num">30</div>
+          <div class="plan-day-label">Days — Listen & Learn</div>
+        </div>
+        <div class="plan-card-body">
+          <div class="plan-goal">Foundation & Discovery</div>
+          <ul class="plan-items">
+            <li>Meet with all key stakeholders — exec sponsors, tech leads, business owners</li>
+            <li>Audit active projects, existing documentation, and current tooling stack</li>
+            <li>Map team communication patterns and escalation paths</li>
+            <li>Understand current reporting cadence and status frameworks</li>
+            <li>Identify quick wins and low-hanging process gaps</li>
+            <li>Review existing RAID logs, project charters, and SOWs</li>
+            <li>Understand budget structure and procurement processes</li>
+            <li>Shadow sprint ceremonies, standups, and steering committee meetings</li>
+          </ul>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-header">
+          <div class="plan-day-num">60</div>
+          <div class="plan-day-label">Days — Contribute & Refine</div>
+        </div>
+        <div class="plan-card-body">
+          <div class="plan-goal">Ownership & Optimization</div>
+          <ul class="plan-items">
+            <li>Take full ownership of assigned project workstreams</li>
+            <li>Formalize or improve RAID logging and risk escalation processes</li>
+            <li>Establish standardized status reporting templates for stakeholders</li>
+            <li>Build relationships with vendors, 3rd party teams, and dependent squads</li>
+            <li>Identify resource constraints and propose mitigation strategies</li>
+            <li>Deliver first independent stakeholder update / steering committee deck</li>
+            <li>Tighten sprint backlog hygiene and milestone accountability</li>
+            <li>Begin knowledge transfer documentation for the team</li>
+          </ul>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-header">
+          <div class="plan-day-num">90</div>
+          <div class="plan-day-label">Days — Lead & Scale</div>
+        </div>
+        <div class="plan-card-body">
+          <div class="plan-goal">Delivery & Impact</div>
+          <ul class="plan-items">
+            <li>Deliver first measurable milestone or project phase on time</li>
+            <li>Present 90-day retrospective and forward roadmap to leadership</li>
+            <li>Propose process improvements backed by data from first 60 days</li>
+            <li>Formalize PM playbook or runbook for the team's recurring workflows</li>
+            <li>Establish KPIs and success metrics for all active workstreams</li>
+            <li>Mentor or support junior team members as needed</li>
+            <li>Drive cross-functional alignment meetings with autonomy</li>
+            <li>Begin planning next quarter's project portfolio roadmap</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:1rem;">Key Metrics I'll Track</h3>
+    <div class="two-col">
+      <div>
+        <div class="progress-row"><span class="progress-label">Stakeholder satisfaction</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:92%"></div></div><span class="progress-pct">92%</span></div>
+        <div class="progress-row"><span class="progress-label">On-time delivery</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:96%"></div></div><span class="progress-pct">96%</span></div>
+        <div class="progress-row"><span class="progress-label">Budget adherence</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:100%"></div></div><span class="progress-pct">100%</span></div>
+        <div class="progress-row"><span class="progress-label">Risk items resolved</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:88%"></div></div><span class="progress-pct">88%</span></div>
+      </div>
+      <div>
+        <div class="progress-row"><span class="progress-label">Documentation coverage</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:95%"></div></div><span class="progress-pct">95%</span></div>
+        <div class="progress-row"><span class="progress-label">Sprint velocity</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:85%"></div></div><span class="progress-pct">85%</span></div>
+        <div class="progress-row"><span class="progress-label">Team adoption of process</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:90%"></div></div><span class="progress-pct">90%</span></div>
+        <div class="progress-row"><span class="progress-label">Defect resolution rate</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:94%"></div></div><span class="progress-pct">94%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== KANBAN ==================== -->
+<section id="kanban">
+  <div class="container">
+    <div class="section-eyebrow">Workflow Management</div>
+    <h2>Kanban Board Examples</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">How I keep workstreams visible, prioritized, and moving. Drag cards between columns to see how I manage task flow.</p>
+    <div style="display:flex;gap:10px;margin-bottom:1rem;flex-wrap:wrap;">
+      <button class="project-tab active" style="flex:none;min-width:auto;" onclick="switchKanban('integration',this)">SAP/Salesforce Integration</button>
+      <button class="project-tab" style="flex:none;min-width:auto;" onclick="switchKanban('infra',this)">Infrastructure Program</button>
+    </div>
+    <div id="kanban-integration">
+      <div class="kanban-board" id="kb-int">
+        <div class="kanban-col" id="kb-int-backlog" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-int-backlog')">
+          <div class="kanban-col-header"><span class="kanban-col-title">Backlog</span><span class="kanban-count">3</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Define data migration rollback plan</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Risk</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Finalize MuleSoft error handling requirements</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Technical</span><span class="kcard-assignee">Dev</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Draft post-launch support handoff doc</div><div class="kcard-meta"><span class="kcard-tag tag-low">Low</span><span class="kcard-tag tag-type">Docs</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-int-inprog" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-int-inprog')">
+          <div class="kanban-col-header"><span class="kanban-col-title">In Progress</span><span class="kanban-count">3</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">UAT planning — Finance user group</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">UAT</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Service order field mapping validation</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Integration</span><span class="kcard-assignee">Arch</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Build Week 10 status report deck</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Comms</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-int-review" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-int-review')">
+          <div class="kanban-col-header"><span class="kanban-col-title">In Review</span><span class="kanban-count">2</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Training module v1 — Customer Service team</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Training</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">API requirements sign-off — SAP team</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Sign-off</span><span class="kcard-assignee">PM</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-int-done" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-int-done')">
+          <div class="kanban-col-header"><span class="kanban-col-title">Done</span><span class="kanban-count">4</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Discovery sessions — all stakeholders</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Discovery</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Project charter approved</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Planning</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">RAID log established</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Risk</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Middleware vendor selected</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Vendor</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="kanban-infra" style="display:none;">
+      <div class="kanban-board">
+        <div class="kanban-col" id="kb-inf-backlog" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-inf-backlog')">
+          <div class="kanban-col-header"><span class="kanban-col-title">Backlog</span><span class="kanban-count">3</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Q4 hardware procurement forecast</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Procurement</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Define disaster recovery test protocol</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Risk</span><span class="kcard-assignee">Infra</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Compile lessons learned from Project 12</div><div class="kcard-meta"><span class="kcard-tag tag-low">Low</span><span class="kcard-tag tag-type">Docs</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-inf-inprog" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-inf-inprog')">
+          <div class="kanban-col-header"><span class="kanban-col-title">In Progress</span><span class="kanban-count">3</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Datacenter 3 — network switch refresh</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Infrastructure</span><span class="kcard-assignee">Net</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Security audit review — access controls</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Security</span><span class="kcard-assignee">Sec</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Update portfolio RAID log</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Risk</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-inf-review" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-inf-review')">
+          <div class="kanban-col-header"><span class="kanban-col-title">In Review</span><span class="kanban-count">2</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Server migration runbook v2</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Docs</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Steering committee deck — Month 18</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Comms</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-inf-done" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-inf-done')">
+          <div class="kanban-col-header"><span class="kanban-col-title">Done</span><span class="kanban-count">4</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Datacenter 1 migration — complete</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Infrastructure</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Vendor contracts negotiated</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Vendor</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Resource allocation model finalized</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Planning</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Security protocol baseline documented</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Security</span><span class="kcard-assignee">Sec</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SKILLS ==================== -->
+<section id="skills">
+  <div class="container">
+    <div class="section-eyebrow">Capabilities</div>
+    <h2>Skills & Toolset</h2>
+    <div class="gold-bar"></div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-cat-label">Project Management Tools</div>
+        <span class="skill-pill"><span class="skill-dot"></span>Jira</span><span class="skill-pill"><span class="skill-dot"></span>Confluence</span><span class="skill-pill"><span class="skill-dot"></span>Microsoft Project</span><span class="skill-pill"><span class="skill-dot"></span>Smartsheet</span><span class="skill-pill"><span class="skill-dot"></span>Asana</span><span class="skill-pill"><span class="skill-dot"></span>Trello</span><span class="skill-pill"><span class="skill-dot"></span>Monday.com</span><span class="skill-pill"><span class="skill-dot"></span>Azure DevOps</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Enterprise Platforms</div>
+        <span class="skill-pill"><span class="skill-dot"></span>Salesforce (Service Cloud)</span><span class="skill-pill"><span class="skill-dot"></span>SAP S/4HANA</span><span class="skill-pill"><span class="skill-dot"></span>Epic EHR</span><span class="skill-pill"><span class="skill-dot"></span>MuleSoft</span><span class="skill-pill"><span class="skill-dot"></span>Boomi</span><span class="skill-pill"><span class="skill-dot"></span>ServiceNow</span><span class="skill-pill"><span class="skill-dot"></span>Tableau</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Methodologies & Frameworks</div>
+        <span class="skill-pill"><span class="skill-dot"></span>Agile / Scrum</span><span class="skill-pill"><span class="skill-dot"></span>Waterfall</span><span class="skill-pill"><span class="skill-dot"></span>SAFe</span><span class="skill-pill"><span class="skill-dot"></span>Hybrid PM</span><span class="skill-pill"><span class="skill-dot"></span>PMI / PMBOK</span><span class="skill-pill"><span class="skill-dot"></span>ITIL</span><span class="skill-pill"><span class="skill-dot"></span>Kanban</span><span class="skill-pill"><span class="skill-dot"></span>Design Thinking</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Technical Skills</div>
+        <span class="skill-pill"><span class="skill-dot"></span>API Requirements Definition</span><span class="skill-pill"><span class="skill-dot"></span>Data Mapping</span><span class="skill-pill"><span class="skill-dot"></span>ERP/CRM Integration</span><span class="skill-pill"><span class="skill-dot"></span>EHR/Epic Integration</span><span class="skill-pill"><span class="skill-dot"></span>UAT Planning</span><span class="skill-pill"><span class="skill-dot"></span>Network Infrastructure</span><span class="skill-pill"><span class="skill-dot"></span>HIPAA/HITECH Compliance</span><span class="skill-pill"><span class="skill-dot"></span>SQL (basic)</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Soft Skills</div>
+        <span class="skill-pill"><span class="skill-dot"></span>Executive Communication</span><span class="skill-pill"><span class="skill-dot"></span>Stakeholder Management</span><span class="skill-pill"><span class="skill-dot"></span>Conflict Resolution</span><span class="skill-pill"><span class="skill-dot"></span>Change Management</span><span class="skill-pill"><span class="skill-dot"></span>Facilitation</span><span class="skill-pill"><span class="skill-dot"></span>Active Listening</span><span class="skill-pill"><span class="skill-dot"></span>Cross-functional Leadership</span><span class="skill-pill"><span class="skill-dot"></span>Negotiation</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Communication & Productivity</div>
+        <span class="skill-pill"><span class="skill-dot"></span>MS Office Suite</span><span class="skill-pill"><span class="skill-dot"></span>Google Workspace</span><span class="skill-pill"><span class="skill-dot"></span>Slack</span><span class="skill-pill"><span class="skill-dot"></span>MS Teams</span><span class="skill-pill"><span class="skill-dot"></span>Zoom</span><span class="skill-pill"><span class="skill-dot"></span>Miro / Mural</span><span class="skill-pill"><span class="skill-dot"></span>SharePoint</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.5rem;">Industry Experience</h3>
+    <div style="margin-top:1rem;display:flex;gap:10px;flex-wrap:wrap;">
+      <span class="badge dark">Financial Services</span><span class="badge dark">Healthcare / EHR</span><span class="badge dark">Transportation & Transit</span><span class="badge dark">Enterprise Technology</span><span class="badge dark">Consumer Technology</span><span class="badge dark">ITSM / Help Desk</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DOCUMENTS ==================== -->
+<section id="docs">
+  <div class="container">
+    <div class="section-eyebrow">PM Artifacts</div>
+    <h2>Documents & Frameworks</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">A sample of the deliverables and frameworks I create and maintain across projects.</p>
+    <div class="docs-grid">
+      <div class="doc-card" onclick="openModal('modal-raci')">
+        <div class="doc-preview">
+          <div class="doc-preview-inner">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px;">RACI Matrix</div>
+            <table style="width:100%;border-collapse:collapse;font-size:9px;">
+              <tr style="background:var(--ink);color:var(--gold);"><th style="padding:4px 6px;text-align:left;">Task</th><th style="padding:4px 6px;">PM</th><th style="padding:4px 6px;">Dev</th><th style="padding:4px 6px;">Arch</th><th style="padding:4px 6px;">Exec</th></tr>
+              <tr><td style="padding:4px 6px;border-bottom:1px solid #eee;">Project Charter</td><td style="text-align:center;padding:4px 6px;"><span style="background:#1a3a2f;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;">R</span></td><td style="text-align:center;"><span style="background:#e8f4ee;color:#1a3a2f;border-radius:4px;padding:1px 5px;font-weight:800;">C</span></td><td style="text-align:center;"><span style="background:#e8f4ee;color:#1a3a2f;border-radius:4px;padding:1px 5px;font-weight:800;">C</span></td><td style="text-align:center;"><span style="background:#c9a84c;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;">A</span></td></tr>
+              <tr><td style="padding:4px 6px;">API Requirements</td><td style="text-align:center;"><span style="background:#1a3a2f;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;">R</span></td><td style="text-align:center;"><span style="background:#1a3a2f;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;">R</span></td><td style="text-align:center;"><span style="background:#c9a84c;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;">A</span></td><td style="text-align:center;"><span style="background:#f0f0f0;color:#888;border-radius:4px;padding:1px 5px;font-weight:800;">I</span></td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="doc-meta"><div><div class="doc-name">RACI Matrix</div><div class="doc-type">Responsibility Assignment</div></div><button class="doc-open-btn">View</button></div>
+      </div>
+      <div class="doc-card" onclick="openModal('modal-raid')">
+        <div class="doc-preview">
+          <div class="doc-preview-inner">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px;">RAID Log</div>
+            <table style="width:100%;border-collapse:collapse;font-size:8.5px;">
+              <tr style="background:var(--ink);color:var(--cream);"><th style="padding:3px 5px;text-align:left;">ID</th><th style="padding:3px 5px;text-align:left;">Type</th><th style="padding:3px 5px;text-align:left;">Description</th><th style="padding:3px 5px;">Status</th></tr>
+              <tr><td style="padding:3px 5px;border-bottom:1px solid #eee;">R-01</td><td>Risk</td><td>Data loss during migration window</td><td style="text-align:center;"><span style="background:#fde8e8;color:#a32d2d;padding:1px 5px;border-radius:4px;">Open</span></td></tr>
+              <tr><td style="padding:3px 5px;border-bottom:1px solid #eee;">A-01</td><td>Assumption</td><td>API will be backwards compatible</td><td style="text-align:center;"><span style="background:#fef3e2;color:#854f0b;padding:1px 5px;border-radius:4px;">Monitor</span></td></tr>
+              <tr><td style="padding:3px 5px;">I-01</td><td>Issue</td><td>UAT sign-off delayed by 3 days</td><td style="text-align:center;"><span style="background:#e8f4ee;color:#1a3a2f;padding:1px 5px;border-radius:4px;">Resolved</span></td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="doc-meta"><div><div class="doc-name">RAID Log</div><div class="doc-type">Risk & Issue Tracker</div></div><button class="doc-open-btn">View</button></div>
+      </div>
+      <div class="doc-card" onclick="openModal('modal-status')">
+        <div class="doc-preview">
+          <div class="doc-preview-inner">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px;">Weekly Status Report</div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;">
+              <div style="flex:1;background:#e8f4ee;border-radius:5px;padding:4px 6px;text-align:center;"><div style="font-size:8px;color:#1a3a2f;font-weight:700;">Schedule</div><div style="font-size:12px;font-weight:900;color:#1a3a2f;">ON</div></div>
+              <div style="flex:1;background:#e8f4ee;border-radius:5px;padding:4px 6px;text-align:center;"><div style="font-size:8px;color:#1a3a2f;font-weight:700;">Budget</div><div style="font-size:12px;font-weight:900;color:#1a3a2f;">ON</div></div>
+              <div style="flex:1;background:#fef3e2;border-radius:5px;padding:4px 6px;text-align:center;"><div style="font-size:8px;color:#854f0b;font-weight:700;">Scope</div><div style="font-size:12px;font-weight:900;color:#854f0b;">AT</div></div>
+            </div>
+            <div style="font-size:8px;color:#888;margin-top:4px;">Accomplishments · Risks · Next Steps</div>
+          </div>
+        </div>
+        <div class="doc-meta"><div><div class="doc-name">Weekly Status Report</div><div class="doc-type">Stakeholder Communication</div></div><button class="doc-open-btn">View</button></div>
+      </div>
+      <div class="doc-card" onclick="openModal('modal-charter')">
+        <div class="doc-preview">
+          <div class="doc-preview-inner">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px;">Project Charter</div>
+            <div style="font-size:8px;color:#555;line-height:1.6;">
+              <strong>Project:</strong> SAP-Salesforce Integration<br>
+              <strong>Sponsor:</strong> VP Finance & VP Customer<br>
+              <strong>PM:</strong> Ericka L. Edmond<br>
+              <strong>Budget:</strong> $TBD<br><br>
+              <strong>Objective:</strong> Unify Finance and CX data flows...<br>
+              <strong>Scope:</strong> ERP-to-CRM pipeline, middleware...<br>
+              <strong>Success Criteria:</strong> 100% data integrity, 200+ users live
+            </div>
+          </div>
+        </div>
+        <div class="doc-meta"><div><div class="doc-name">Project Charter</div><div class="doc-type">Initiation Document</div></div><button class="doc-open-btn">View</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VALUE ==================== -->
+<section id="value">
+  <div class="container">
+    <div class="section-eyebrow">My Differentiator</div>
+    <h2>What I Bring to Any Team</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">Beyond managing timelines and budgets — I bring a unique combination of technical depth, stakeholder empathy, and delivery discipline that accelerates outcomes in complex environments.</p>
+    <div class="value-grid">
+      <div class="value-card"><div class="value-icon">🔗</div><div class="value-title">Technical–Business Bridge</div><p class="value-desc">I speak fluent developer and executive. Having started in IT infrastructure and help desk, I understand what engineers are building — and can translate that into outcomes stakeholders care about.</p></div>
+      <div class="value-card"><div class="value-icon">🎯</div><div class="value-title">Regulated Industry Fluency</div><p class="value-desc">Finance, Healthcare, Transit — I've worked in the most compliance-heavy sectors. HIPAA, HITECH, enterprise security protocols, and banking-grade SLAs are not new territory for me.</p></div>
+      <div class="value-card"><div class="value-icon">⚡</div><div class="value-title">Zero-Waste Delivery</div><p class="value-desc">Across every project on my resume: zero budget overruns, 99.99% uptime maintained, 100% compliance records. I deliver clean handoffs — no technical debt, no lingering risks.</p></div>
+      <div class="value-card"><div class="value-icon">🔍</div><div class="value-title">Human-Centered PM</div><p class="value-desc">At Children's Healthcare I conducted on-the-floor clinical observations before designing solutions. I believe the best project outcomes start with deeply understanding the people impacted.</p></div>
+      <div class="value-card"><div class="value-icon">📊</div><div class="value-title">Portfolio-Scale Thinking</div><p class="value-desc">Managing 15+ concurrent workstreams at Bank of America taught me how to prioritize ruthlessly, prevent resource collisions, and keep every stream visible to leadership simultaneously.</p></div>
+      <div class="value-card"><div class="value-icon">🤝</div><div class="value-title">Team Multiplier</div><p class="value-desc">I build trust quickly across engineering, finance, clinical, and executive teams. People share real blockers with me because I listen first, solve second — and never shoot the messenger.</p></div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:1.25rem;">Education & Credentials</h3>
+    <div class="two-col">
+      <div class="card"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Degree</div><div style="font-size:1rem;font-weight:600;color:var(--ink);">B.S. – IT Management</div><div style="font-size:13px;color:var(--mid);">Western Governors University</div></div>
+      <div class="card"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">In Progress / Target</div><div style="font-size:1rem;font-weight:600;color:var(--ink);">PMP Certification</div><div style="font-size:13px;color:var(--mid);">Project Management Professional — PMI</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== LEADERSHIP ==================== -->
+<section id="leadership">
+  <div class="container">
+    <div class="section-eyebrow">Leadership Philosophy</div>
+    <h2>How I Lead & Communicate</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">Projects succeed or fail in the relationships between people. Here's how I build them, maintain them, and use them to drive results.</p>
+
+    <div class="divider" style="margin:1.5rem 0;"></div>
+    <h3 style="margin-bottom:0.25rem;">Building Professional Relationships</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">I invest in people before I need anything from them.</p>
+    <div class="insight-grid">
+      <div class="insight-card"><div class="insight-num">01 — Relationship</div><div class="insight-title">Early Relationship Mapping</div><p class="insight-body">Within week one I identify all stakeholders, their communication preferences, and pain points — creating a map that guides my entire engagement strategy.</p></div>
+      <div class="insight-card"><div class="insight-num">02 — Trust</div><div class="insight-title">Trust Through Transparency</div><p class="insight-body">I never surprise stakeholders. RAG status reports, proactive risk escalation, and honest timelines build the credibility that keeps executive sponsors engaged.</p></div>
+      <div class="insight-card"><div class="insight-num">03 — Vendors</div><div class="insight-title">Vendor Partnership</div><p class="insight-body">At CHOA I managed $500K+ in vendor relationships, enforcing SLAs while maintaining collaborative partnerships that ensured milestone delivery.</p></div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.25rem;">Influence Without Authority</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">As a PM, formal authority is rare. My influence comes from expertise, relationships, and consistent delivery.</p>
+    <div class="insight-grid">
+      <div class="insight-card"><div class="insight-num">01 — Evidence</div><div class="insight-title">Lead With Data</div><p class="insight-body">I use dashboards, RAID logs, and KPIs to make evidence-based recommendations that are difficult to dispute and easy to act on.</p></div>
+      <div class="insight-card"><div class="insight-num">02 — Alignment</div><div class="insight-title">Find Common Ground</div><p class="insight-body">I invest time understanding each stakeholder's goals — then frame every ask in terms of their success metrics, not mine.</p></div>
+      <div class="insight-card"><div class="insight-num">03 — Delivery</div><div class="insight-title">Deliver Consistently</div><p class="insight-body">Nothing builds influence faster than being the person who does what they say. My track record of zero overruns earns me credibility to push back when needed.</p></div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.25rem;">Adaptive Communication</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">I speak every stakeholder's language — adjusting style, format, and depth based on who I'm talking to.</p>
+    <div class="comm-grid">
+      <div class="comm-card"><div class="comm-who">Executives & Sponsors</div><div class="comm-style">Strategic, outcome-focused</div><div class="comm-tools">Dashboards · RAG summaries · 1-page briefs</div><div class="comm-quote">"We're on track for July go-live. One risk — here are our three mitigation options."</div></div>
+      <div class="comm-card"><div class="comm-who">Technical Teams</div><div class="comm-style">Detailed, process-oriented</div><div class="comm-tools">Jira · Confluence · API docs · Sprint boards</div><div class="comm-quote">"The MuleSoft integration has 3 open mapping issues. Let's resolve them in today's stand-up."</div></div>
+      <div class="comm-card"><div class="comm-who">Clinical / Operations</div><div class="comm-style">Workflow-focused, empathetic</div><div class="comm-tools">Process flows · Training guides · Day-in-the-life observations</div><div class="comm-quote">"This change saves 15 minutes per intake. Here's what the new screen looks like for your team."</div></div>
+      <div class="comm-card"><div class="comm-who">Vendors & Partners</div><div class="comm-style">Contract-aware, collaborative</div><div class="comm-tools">SLA trackers · Milestone reports · Escalation protocols</div><div class="comm-quote">"You're at 85% of SLA compliance. What support do you need to hit 100% by Friday?"</div></div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.25rem;">Project Prioritization</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">At Cisco I managed 15+ concurrent projects. Prioritization isn't about doing everything — it's about doing the right things first.</p>
+    <div class="two-col">
+      <div>
+        <ul class="bullet-list">
+          <li>Align with executive & sponsor objectives before anything else</li>
+          <li>Assess business impact vs. effort using an impact/urgency matrix</li>
+          <li>Use dependency mapping to sequence workstreams and prevent cascades</li>
+          <li>Maintain a living portfolio risk register updated weekly</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="bullet-list">
+          <li>Re-prioritize in weekly planning ceremonies as conditions change</li>
+          <li>Escalate trade-off decisions transparently — sponsors own final priority calls</li>
+          <li>Protect team bandwidth — say no to scope creep early and diplomatically</li>
+          <li>Use centralized dashboards to keep all workstreams visible to leadership simultaneously</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.25rem;">Continuous Learning</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">The PM landscape evolves constantly. I invest in staying ahead.</p>
+    <div class="three-col">
+      <div class="card"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.5rem;">Education</div><p style="font-size:13px;color:var(--mid);">B.S. IT Management (WGU) · Pursuing PMP · Agile/Scrum training · HIPAA compliance coursework</p></div>
+      <div class="card"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.5rem;">Tool Mastery</div><p style="font-size:13px;color:var(--mid);">Deepened expertise in Salesforce, SAP S/4HANA, MuleSoft, Epic, Jira, Smartsheet, and Tableau</p></div>
+      <div class="card"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.5rem;">Leadership Growth</div><p style="font-size:13px;color:var(--mid);">Executive presence · Day-in-the-life research methodology · Cross-sector knowledge transfer · Mentoring</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MODALS ==================== -->
+<div class="modal-overlay" id="modal-raci" onclick="closeModal('modal-raci')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div><h3 style="font-size:1rem;">RACI Matrix — SAP/Salesforce Integration</h3><p style="font-size:12px;color:var(--mid);margin-top:2px;">Responsibility Assignment Matrix</p></div>
+      <button class="modal-close" onclick="closeModal('modal-raci')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;"><strong>R</strong> = Responsible &nbsp;|&nbsp; <strong>A</strong> = Accountable &nbsp;|&nbsp; <strong>C</strong> = Consulted &nbsp;|&nbsp; <strong>I</strong> = Informed</p>
+      <div style="overflow-x:auto;">
+        <table class="raci-table">
+          <thead>
+            <tr>
+              <th style="min-width:200px;">Task / Deliverable</th>
+              <th style="text-align:center;">PM<br><small style="font-weight:400;">Ericka</small></th>
+              <th style="text-align:center;">SAP Dev<br><small style="font-weight:400;">Team</small></th>
+              <th style="text-align:center;">Salesforce<br><small style="font-weight:400;">Architect</small></th>
+              <th style="text-align:center;">Finance<br><small style="font-weight:400;">Stakeholder</small></th>
+              <th style="text-align:center;">Exec<br><small style="font-weight:400;">Sponsor</small></th>
+              <th style="text-align:center;">QA<br><small style="font-weight:400;">Team</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Project Charter</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td></tr>
+            <tr><td>Discovery Sessions</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td></tr>
+            <tr><td>API Requirements Definition</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td></tr>
+            <tr><td>Data Mapping</td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td></tr>
+            <tr><td>UAT Planning & Execution</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td></tr>
+            <tr><td>Training Module Development</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td></tr>
+            <tr><td>Go-Live Approval</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td></tr>
+            <tr><td>Post-Launch Review</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-raid" onclick="closeModal('modal-raid')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div><h3 style="font-size:1rem;">RAID Log — SAP/Salesforce Integration</h3><p style="font-size:12px;color:var(--mid);margin-top:2px;">Risks · Assumptions · Issues · Dependencies</p></div>
+      <button class="modal-close" onclick="closeModal('modal-raid')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="overflow-x:auto;">
+        <table class="status-table">
+          <thead><tr><th>ID</th><th>Type</th><th>Description</th><th>Owner</th><th>Impact</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">R-01</td><td><span class="badge" style="font-size:10px;">Risk</span></td><td>Data loss during migration window if rollback not tested</td><td>EE / Dev</td><td><span style="color:#a32d2d;font-weight:600;">High</span></td><td><span class="status-dot amber">Mitigating</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">R-02</td><td><span class="badge" style="font-size:10px;">Risk</span></td><td>Salesforce API limits may throttle bulk data sync</td><td>Architect</td><td><span style="color:#854f0b;font-weight:600;">Med</span></td><td><span class="status-dot green">Resolved</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">A-01</td><td><span class="badge" style="font-size:10px;">Assumption</span></td><td>SAP API endpoints are backwards compatible post-upgrade</td><td>EE</td><td><span style="color:#854f0b;font-weight:600;">Med</span></td><td><span class="status-dot amber">Monitor</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">A-02</td><td><span class="badge" style="font-size:10px;">Assumption</span></td><td>Finance team available for UAT — 3 days minimum</td><td>EE</td><td><span style="color:#2d9c5e;font-weight:600;">Low</span></td><td><span class="status-dot green">Confirmed</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">I-01</td><td><span class="badge" style="font-size:10px;">Issue</span></td><td>UAT sign-off delayed by Finance team — 3 business days</td><td>EE</td><td><span style="color:#a32d2d;font-weight:600;">High</span></td><td><span class="status-dot green">Resolved</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">I-02</td><td><span class="badge" style="font-size:10px;">Issue</span></td><td>MuleSoft dev resource out sick — sprint blocker</td><td>PM</td><td><span style="color:#854f0b;font-weight:600;">Med</span></td><td><span class="status-dot green">Resolved</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">D-01</td><td><span class="badge" style="font-size:10px;">Dependency</span></td><td>SAP upgrade must complete before API mapping begins</td><td>EE / SAP</td><td><span style="color:#a32d2d;font-weight:600;">High</span></td><td><span class="status-dot green">Complete</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">D-02</td><td><span class="badge" style="font-size:10px;">Dependency</span></td><td>Security approval needed before go-live in PROD</td><td>SecOps</td><td><span style="color:#a32d2d;font-weight:600;">High</span></td><td><span class="status-dot amber">Pending</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-status" onclick="closeModal('modal-status')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div><h3 style="font-size:1rem;">Weekly Status Report — Week 10</h3><p style="font-size:12px;color:var(--mid);margin-top:2px;">SAP/Salesforce Integration · Ericka L. Edmond, PM</p></div>
+      <button class="modal-close" onclick="closeModal('modal-status')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;gap:10px;margin-bottom:1.5rem;">
+        <div style="flex:1;background:#e8f4ee;border:1px solid #b5d9c4;border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#1a3a2f;">Schedule</div><div style="font-size:1.3rem;font-weight:800;color:#1a3a2f;">ON TRACK</div></div>
+        <div style="flex:1;background:#e8f4ee;border:1px solid #b5d9c4;border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#1a3a2f;">Budget</div><div style="font-size:1.3rem;font-weight:800;color:#1a3a2f;">ON TRACK</div></div>
+        <div style="flex:1;background:#fef3e2;border:1px solid #f5d0a0;border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#854f0b;">Scope</div><div style="font-size:1.3rem;font-weight:800;color:#854f0b;">AT RISK</div></div>
+        <div style="flex:1;background:#e8f4ee;border:1px solid #b5d9c4;border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#1a3a2f;">Quality</div><div style="font-size:1.3rem;font-weight:800;color:#1a3a2f;">ON TRACK</div></div>
+      </div>
+      <h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.6rem;">Accomplishments This Week</h3>
+      <ul class="bullet-list" style="margin-bottom:1.25rem;">
+        <li>Completed field-level data mapping validation for service orders (confirmed 100% coverage)</li>
+        <li>Facilitated 3-way discovery session with SAP devs, Salesforce architects, and Finance leads</li>
+        <li>Delivered Training Module v1 to Finance user group — feedback incorporated</li>
+        <li>RAID log updated with 2 new items; 1 issue resolved (MuleSoft resource blocker)</li>
+      </ul>
+      <h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#a32d2d;margin-bottom:0.6rem;">Risks & Issues</h3>
+      <ul class="bullet-list" style="margin-bottom:1.25rem;">
+        <li><strong>Scope at risk:</strong> Finance team requesting addition of invoice reconciliation to Phase 1 — change request being evaluated</li>
+        <li>R-01 still open: rollback test scheduled for Week 11 — mitigation plan shared with Exec Sponsor</li>
+        <li>Security approval (D-02) pending — following up with SecOps this week</li>
+      </ul>
+      <h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.6rem;">Next Week</h3>
+      <ul class="bullet-list">
+        <li>Launch UAT with Finance user group (Day 1 of 3-day window)</li>
+        <li>Execute data migration rollback test with Dev team</li>
+        <li>Formal change request review — invoice reconciliation scope item</li>
+        <li>Prepare Week 11 go/no-go checklist for Exec Sponsor review</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-charter" onclick="closeModal('modal-charter')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div><h3 style="font-size:1rem;">Project Charter</h3><p style="font-size:12px;color:var(--mid);margin-top:2px;">SAP S/4HANA × Salesforce Service Cloud Integration</p></div>
+      <button class="modal-close" onclick="closeModal('modal-charter')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="two-col" style="margin-bottom:1.5rem;">
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.4rem;">Project Information</div>
+          <table style="width:100%;font-size:12.5px;border-collapse:collapse;">
+            <tr><td style="color:var(--mid);padding:4px 0;width:45%;">Project Name</td><td style="font-weight:600;color:var(--ink);">SAP-SFDC Finance Integration</td></tr>
+            <tr><td style="color:var(--mid);padding:4px 0;">Project Manager</td><td style="font-weight:600;color:var(--ink);">Ericka L. Edmond</td></tr>
+            <tr><td style="color:var(--mid);padding:4px 0;">Start Date</td><td style="font-weight:600;color:var(--ink);">December 2024</td></tr>
+            <tr><td style="color:var(--mid);padding:4px 0;">Target End</td><td style="font-weight:600;color:var(--ink);">June 2025</td></tr>
+            <tr><td style="color:var(--mid);padding:4px 0;">Exec Sponsor</td><td style="font-weight:600;color:var(--ink);">VP Finance / VP CX</td></tr>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.4rem;">Success Criteria</div>
+          <ul class="bullet-list">
+            <li>100% data integrity across ERP-to-CRM pipeline</li>
+            <li>200+ users trained and live at rollout</li>
+            <li>Post-launch support tickets reduced vs. baseline</li>
+            <li>Zero data loss during migration</li>
+            <li>Finance + Customer Service sign-off at UAT</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-bottom:1.25rem;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.4rem;">Business Objective</div>
+        <p style="font-size:13px;color:var(--slate);">Eliminate data silos between Finance (SAP S/4HANA) and Customer Service (Salesforce Service Cloud) by establishing a real-time, bi-directional data integration. This will reduce manual reconciliation effort, improve billing accuracy, and give Customer Service teams visibility into financial data at the point of interaction.</p>
+      </div>
+      <div style="margin-bottom:1.25rem;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.4rem;">In Scope</div>
+        <ul class="bullet-list">
+          <li>ERP-to-CRM pipeline via MuleSoft/Boomi middleware</li>
+          <li>Service order and billing cycle data mapping</li>
+          <li>UAT coordination and go-live for 200+ global users</li>
+          <li>Training documentation and knowledge base</li>
+          <li>Post-launch support transition to BAU team</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.4rem;">Out of Scope</div>
+        <ul class="bullet-list">
+          <li>Full SAP upgrade (separate program)</li>
+          <li>Salesforce platform enhancements beyond integration fields</li>
+          <li>Invoice reconciliation module (Phase 2 consideration)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function showProject(id, btn) {
+    document.querySelectorAll('.project-detail').forEach(d => d.classList.remove('active'));
+    document.getElementById('proj-' + id).classList.add('active');
+    document.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  function switchKanban(id, btn) {
+    document.getElementById('kanban-integration').style.display = id === 'integration' ? 'block' : 'none';
+    document.getElementById('kanban-infra').style.display = id === 'infra' ? 'block' : 'none';
+    btn.closest('div').querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+  let dragSrc = null;
+  function kbDragStart(e) { dragSrc = e.target.closest('.kanban-card'); dragSrc.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; }
+  function kbDragOver(e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; document.querySelectorAll('.kanban-col').forEach(c => c.classList.remove('drag-over')); e.currentTarget.classList.add('drag-over'); }
+  function kbDrop(e, colId) {
+    e.preventDefault();
+    document.querySelectorAll('.kanban-col').forEach(c => c.classList.remove('drag-over'));
+    if (dragSrc) { dragSrc.classList.remove('dragging'); document.getElementById(colId).querySelector('.kanban-cards').appendChild(dragSrc); updateCounts(); dragSrc = null; }
+  }
+  document.addEventListener('dragend', () => { document.querySelectorAll('.kanban-card').forEach(c => c.classList.remove('dragging')); document.querySelectorAll('.kanban-col').forEach(c => c.classList.remove('drag-over')); });
+  function updateCounts() { document.querySelectorAll('.kanban-col').forEach(col => { const cnt = col.querySelector('.kanban-count'); if (cnt) cnt.textContent = col.querySelectorAll('.kanban-card').length; }); }
+</script>
+</body>
+</html>
