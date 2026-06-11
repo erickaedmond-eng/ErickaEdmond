@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ericka L. Edmond — Legal Operations Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0d; --cream: #faf8f4; --warm: #f2ede4; --gold: #c9a84c;
+    --gold-light: #e8d5a3; --gold-pale: #fdf6e3; --slate: #3a3630;
+    --mid: #7a7267; --muted: #b5ae9f; --line: #e0d8cc; --white: #ffffff;
+    --accent: #1a3a2f; --accent2: #8b2c2c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 15px; line-height: 1.7; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,248,244,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 0; list-style: none; flex-wrap: wrap; }
+  .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 20px; transition: all 0.2s; cursor: pointer; }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); background: var(--warm); }
+  section { display: none; padding: 80px 0 60px; min-height: 100vh; animation: fadeIn 0.4s ease; }
+  section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+  .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: var(--ink); }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--ink); }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); }
+  .lead { font-size: 1.05rem; color: var(--mid); line-height: 1.8; max-width: 620px; }
+  .gold-bar { width: 40px; height: 3px; background: var(--gold); margin: 1rem 0 1.5rem; }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.75rem; transition: box-shadow 0.2s, transform 0.2s; }
+  .card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; background: var(--gold-pale); color: var(--slate); border: 1px solid var(--gold-light); margin: 3px 3px 3px 0; }
+  .badge.dark { background: var(--ink); color: var(--gold); border-color: var(--ink); }
+  .badge.green { background: #e8f4ee; color: #1a3a2f; border-color: #b5d9c4; }
+  /* HERO */
+  #home .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: calc(100vh - 80px); padding: 4rem 0; }
+  .stat-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; text-align: center; }
+  .stat-card .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--ink); line-height: 1; }
+  .stat-card .stat-num span { color: var(--gold); }
+  .stat-card .stat-label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+  .stat-card.featured { background: var(--ink); border-color: var(--ink); }
+  .stat-card.featured .stat-num { color: var(--gold); font-size: 2.4rem; }
+  .stat-card.featured .stat-label { color: var(--muted); }
+  /* LEGAL BG */
+  .legal-bg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; }
+  .legal-bg-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; border-top: 3px solid var(--gold); transition: all 0.2s; }
+  .legal-bg-card:hover { box-shadow: 0 6px 24px rgba(201,168,76,0.1); border-color: var(--gold-light); }
+  .legal-bg-card.dark-top { border-top-color: var(--ink); }
+  .lbg-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+  .lbg-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
+  .lsat-block { background: var(--ink); border-radius: 12px; padding: 1.75rem 2rem; margin-top: 2rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+  .lsat-icon { font-size: 2rem; flex-shrink: 0; }
+  .lsat-block h3 { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--gold-light); margin-bottom: 0.4rem; }
+  .lsat-block p { font-size: 13.5px; color: rgba(255,255,255,0.82); line-height: 1.75; }
+  /* PROJECTS */
+  .project-tabs { display: flex; gap: 0; background: var(--warm); border-radius: 10px; padding: 4px; margin-bottom: 2rem; flex-wrap: wrap; }
+  .project-tab { flex: 1; min-width: 120px; padding: 0.6rem 1rem; border: none; background: transparent; border-radius: 7px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--mid); cursor: pointer; transition: all 0.2s; text-align: center; }
+  .project-tab.active { background: var(--white); color: var(--ink); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .project-detail { display: none; }
+  .project-detail.active { display: block; animation: fadeIn 0.3s ease; }
+  .project-header { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .meta-item { background: var(--warm); border-radius: 8px; padding: 0.8rem 1rem; }
+  .meta-item .meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+  .meta-item .meta-val { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+  .issue-solution { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .issue-block { background: #fff8f8; border: 1px solid #f5d0d0; border-radius: 10px; padding: 1.25rem; }
+  .solution-block { background: #f3faf6; border: 1px solid #b5d9c4; border-radius: 10px; padding: 1.25rem; }
+  .block-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .issue-block .block-label { color: #a32d2d; }
+  .solution-block .block-label { color: #1a3a2f; }
+  .bullet-list { list-style: none; padding: 0; }
+  .bullet-list li { font-size: 13.5px; color: var(--slate); padding: 0.3rem 0 0.3rem 1.2rem; position: relative; line-height: 1.6; }
+  .bullet-list li::before { content: '—'; position: absolute; left: 0; color: var(--muted); font-size: 11px; top: 0.45rem; }
+  /* PLAN */
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  .plan-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .plan-card-header { padding: 1.25rem 1.5rem 1rem; border-bottom: 1px solid var(--line); }
+  .plan-day-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; line-height: 1; color: var(--gold); }
+  .plan-day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-top: 2px; }
+  .plan-card-body { padding: 1.25rem 1.5rem; }
+  .plan-goal { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.75rem; }
+  .plan-items { list-style: none; }
+  .plan-items li { font-size: 13px; color: var(--slate); padding: 0.45rem 0; border-bottom: 1px solid var(--line); display: flex; gap: 8px; line-height: 1.5; }
+  .plan-items li:last-child { border-bottom: none; }
+  .plan-items li::before { content: '○'; color: var(--gold); flex-shrink: 0; font-size: 10px; margin-top: 4px; }
+  /* KANBAN */
+  .kanban-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; background: var(--warm); border-radius: 14px; padding: 1.25rem; }
+  .kanban-col { background: var(--white); border-radius: 10px; border: 1px solid var(--line); overflow: hidden; min-height: 300px; }
+  .kanban-col-header { padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+  .kanban-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); }
+  .kanban-count { font-size: 11px; font-weight: 600; background: var(--warm); color: var(--mid); border-radius: 10px; padding: 1px 7px; }
+  .kanban-cards { padding: 0.75rem; display: flex; flex-direction: column; gap: 8px; }
+  .kanban-card { background: var(--cream); border: 1px solid var(--line); border-radius: 7px; padding: 0.7rem 0.85rem; cursor: grab; transition: box-shadow 0.2s; }
+  .kanban-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+  .kanban-card.dragging { opacity: 0.4; }
+  .kanban-col.drag-over { background: var(--gold-pale); }
+  .kcard-title { font-size: 12.5px; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.4; }
+  .kcard-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .kcard-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 4px; }
+  .tag-high { background: #fde8e8; color: #a32d2d; }
+  .tag-med { background: #fef3e2; color: #854f0b; }
+  .tag-low { background: #e8f4ee; color: #1a3a2f; }
+  .tag-type { background: var(--warm); color: var(--mid); }
+  .kcard-assignee { font-size: 10px; color: var(--muted); margin-left: auto; }
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .skill-cat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line); }
+  .skill-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; color: var(--slate); background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 5px 12px; margin: 3px 3px 3px 0; transition: all 0.2s; }
+  .skill-pill:hover { background: var(--gold-pale); border-color: var(--gold-light); color: var(--ink); }
+  .skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  /* DOCS */
+  .docs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .doc-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.2s; }
+  .doc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .doc-preview { height: 180px; overflow: hidden; border-bottom: 1px solid var(--line); position: relative; }
+  .doc-preview-inner { padding: 1.25rem; transform: scale(0.7); transform-origin: top left; width: 143%; height: 257%; pointer-events: none; }
+  .doc-meta { padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+  .doc-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .doc-type { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 1px; }
+  .doc-open-btn { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: var(--gold-pale); border: 1px solid var(--gold-light); border-radius: 6px; padding: 5px 10px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .doc-open-btn:hover { background: var(--gold); color: var(--white); border-color: var(--gold); }
+  /* MODALS */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,14,13,0.65); z-index: 200; align-items: center; justify-content: center; padding: 2rem; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--white); border-radius: 16px; width: 100%; max-width: 820px; max-height: 90vh; overflow-y: auto; animation: fadeIn 0.25s ease; }
+  .modal-header { position: sticky; top: 0; background: var(--white); border-bottom: 1px solid var(--line); padding: 1.25rem 1.75rem; display: flex; align-items: center; justify-content: space-between; z-index: 1; }
+  .modal-close { width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--cream); cursor: pointer; font-size: 16px; color: var(--mid); display: flex; align-items: center; justify-content: center; }
+  .modal-body { padding: 1.75rem; }
+  /* TABLES */
+  .raci-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 1.5rem; }
+  .raci-table th { background: var(--ink); color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .raci-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--line); color: var(--slate); vertical-align: middle; }
+  .raci-table tr:hover td { background: var(--warm); }
+  .raci-badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; font-size: 11px; font-weight: 800; }
+  .raci-R { background: #1a3a2f; color: #fff; } .raci-A { background: #c9a84c; color: #fff; }
+  .raci-C { background: #e8f4ee; color: #1a3a2f; } .raci-I { background: var(--warm); color: var(--mid); }
+  .status-table { width: 100%; border-collapse: collapse; }
+  .status-table th { background: var(--ink); color: var(--cream); font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 1rem; text-align: left; }
+  .status-table td { padding: 0.55rem 1rem; border-bottom: 1px solid var(--line); font-size: 12.5px; color: var(--slate); }
+  .status-table tr:hover td { background: var(--warm); }
+  .status-dot { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; }
+  .status-dot::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; }
+  .status-dot.green::before { background: #2d9c5e; } .status-dot.amber::before { background: #c9a84c; } .status-dot.red::before { background: #c0392b; }
+  /* VALUE */
+  .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  .value-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; transition: all 0.2s; }
+  .value-card:hover { border-color: var(--gold-light); box-shadow: 0 4px 20px rgba(201,168,76,0.1); }
+  .value-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .value-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .value-desc { font-size: 13px; color: var(--mid); line-height: 1.7; }
+  /* PROGRESS */
+  .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .progress-label { font-size: 12.5px; color: var(--slate); min-width: 160px; }
+  .progress-bar-wrap { flex: 1; height: 6px; background: var(--warm); border-radius: 4px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: var(--gold); border-radius: 4px; }
+  .progress-pct { font-size: 11px; font-weight: 600; color: var(--muted); min-width: 32px; text-align: right; }
+  /* LEADERSHIP */
+  .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .insight-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; border-top: 3px solid var(--gold); }
+  .insight-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .insight-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+  .insight-body { font-size: 13px; color: var(--mid); line-height: 1.7; }
+  .comm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .comm-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; }
+  .comm-who { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+  .comm-style { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+  .comm-tools { font-size: 12px; color: var(--muted); margin-bottom: 0.75rem; }
+  .comm-quote { font-size: 13px; color: var(--slate); font-style: italic; border-left: 2px solid var(--gold); padding-left: 0.75rem; line-height: 1.6; }
+  /* UTILS */
+  .divider { height: 1px; background: var(--line); margin: 2.5rem 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  @media (max-width: 768px) {
+    .hero-grid, .plan-grid, .skills-grid, .issue-solution, .project-header,
+    .value-grid, .docs-grid, .two-col, .three-col, .insight-grid, .comm-grid, .legal-bg-grid { grid-template-columns: 1fr; }
+    .kanban-board { grid-template-columns: repeat(2, 1fr); }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">Ericka L. <span>Edmond</span></div>
+  <ul class="nav-links">
+    <li><a onclick="showSection('home')" class="active" id="nav-home">Overview</a></li>
+    <li><a onclick="showSection('legal')" id="nav-legal">Legal Background</a></li>
+    <li><a onclick="showSection('projects')" id="nav-projects">Experience</a></li>
+    <li><a onclick="showSection('plan')" id="nav-plan">30·60·90</a></li>
+    <li><a onclick="showSection('kanban')" id="nav-kanban">Matter Board</a></li>
+    <li><a onclick="showSection('skills')" id="nav-skills">Skills</a></li>
+    <li><a onclick="showSection('docs')" id="nav-docs">Documents</a></li>
+    <li><a onclick="showSection('value')" id="nav-value">Value</a></li>
+    <li><a onclick="showSection('leadership')" id="nav-leadership">Leadership</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="section-eyebrow">Legal Operations · Contracts · Federal Procurement</div>
+        <h1>Ericka L.<br>Edmond</h1>
+        <div class="gold-bar"></div>
+        <p class="lead">Legal Operations and Contracts professional with 10+ years managing the full contract lifecycle, federal procurement, vendor sourcing, and regulatory compliance across Defense, Healthcare, Financial Services, and Enterprise Technology. FAR/DFARS compliance, SOW & MSA development, subcontractor management, and DOD procurement experience supporting prime aerospace contractors including Boeing, Lockheed Martin, Northrop Grumman, Airbus, and Safari. Currently preparing for the LSAT with a focus on Technology Law, Data Privacy, and Contract Law.</p>
+        <div style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="badge dark">Contract Lifecycle Management</span>
+          <span class="badge dark">FAR / DFARS Compliance</span>
+          <span class="badge dark">SOW & MSA Development</span>
+          <span class="badge dark">Federal Procurement</span>
+          <span class="badge dark">HIPAA / HITECH</span>
+          <span class="badge dark">Subcontractor Management</span>
+          <span class="badge">⚖ LSAT Candidate · Technology Law · Contract Law</span>
+        </div>
+        <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="mailto:ErickaEdmond@Gmail.Com" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:8px 16px;background:var(--white);">✉ ErickaEdmond@Gmail.Com</a>
+          <a href="tel:4048527334" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:8px 16px;background:var(--white);">📞 (404) 852-7334</a>
+        </div>
+      </div>
+      <div>
+        <div class="stat-card featured"><div class="stat-num"><span>10+</span></div><div class="stat-label">Years in Regulated Industries</div></div>
+        <div style="height:12px;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Compliance Violations</div></div>
+          <div class="stat-card"><div class="stat-num">$<span>500K+</span></div><div class="stat-label">Vendor Contracts Managed</div></div>
+          <div class="stat-card"><div class="stat-num">100<span>%</span></div><div class="stat-label">HIPAA Compliance Record</div></div>
+          <div class="stat-card"><div class="stat-num">DOD</div><div class="stat-label">Federal Procurement</div></div>
+          <div class="stat-card" style="grid-column:span 2;"><div class="stat-num">5</div><div class="stat-label">Prime Aerospace Contractors Supported</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL BACKGROUND -->
+<section id="legal">
+  <div class="container">
+    <div class="section-eyebrow">Legal Foundation</div>
+    <h2>My Legal Background</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">Ten years operating inside the most legally scrutinized industries in the U.S. — Defense, Healthcare, Financial Services, and Enterprise Technology — building a practical legal vocabulary few non-attorneys can match.</p>
+    <div class="legal-bg-grid">
+      <div class="legal-bg-card">
+        <div class="lbg-eyebrow">Contract & Vendor Governance</div>
+        <div class="lbg-title">$500K+ in Contracts. Zero SLA Violations.</div>
+        <ul class="bullet-list">
+          <li>Managed vendor contracts end-to-end: SOWs, MSAs, change orders, and milestone accountability</li>
+          <li>Enforced SLA terms with bi-weekly review cadences and documented escalation protocols</li>
+          <li>Negotiated vendor deliverable commitments and cure period frameworks</li>
+          <li>Maintained complete audit-ready contract documentation across all active relationships</li>
+          <li>Zero material SLA breaches across Healthcare, Finance, and Transit engagements</li>
+        </ul>
+      </div>
+      <div class="legal-bg-card dark-top">
+        <div class="lbg-eyebrow">Regulatory Compliance & Risk</div>
+        <div class="lbg-title">Zero Violations. Three Regulated Sectors.</div>
+        <ul class="bullet-list">
+          <li>HIPAA/HITECH compliance across all digital touchpoints handling PHI at CHOA</li>
+          <li>Banking-grade security protocol adherence at Bank of America (Tier-1 institution)</li>
+          <li>Government regulatory compliance for public transit infrastructure and capital programs</li>
+          <li>Proactive RAID log management — legal and regulatory exposure identified before escalation</li>
+          <li>Zero compliance gaps across all programs in highly audited environments</li>
+        </ul>
+      </div>
+      <div class="legal-bg-card dark-top">
+        <div class="lbg-eyebrow">Legal Documentation & Artifacts</div>
+        <div class="lbg-title">Documentation That Holds Up Under Scrutiny</div>
+        <ul class="bullet-list">
+          <li>Authored project charters, SOWs, and technical requirements with legal precision</li>
+          <li>Built RACI matrices establishing clear accountability — analogous to legal responsibility allocation</li>
+          <li>Escalation frameworks and issue resolution protocols mirroring legal dispute processes</li>
+          <li>Maintained complete audit trails and documentation chains for regulated compliance</li>
+          <li>Formal change request processes that prevent scope creep and limit liability exposure</li>
+        </ul>
+      </div>
+      <div class="legal-bg-card">
+        <div class="lbg-eyebrow">Regulated Industry Fluency</div>
+        <div class="lbg-title">I've Lived the Complexity Legal Frameworks Govern</div>
+        <ul class="bullet-list">
+          <li>Defense: FAR/DFARS compliance, DOD federal procurement, RFP/RFQ solicitation, subcontractor management supporting Boeing, Lockheed Martin, Northrop Grumman, Airbus, and Safari</li>
+          <li>Finance: banking-grade security, procurement compliance, zero-downtime obligations at Bank of America</li>
+          <li>Healthcare: HIPAA/HITECH, BAA management, PHI data governance across 50K+ patient records</li>
+          <li>Transit: federal and state funding compliance, capital improvement regulatory frameworks</li>
+          <li>Enterprise tech: data governance, ERP/CRM data integrity, formal approval chains</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lsat-block">
+      <div class="lsat-icon">⚖️</div>
+      <div>
+        <h3>Active LSAT Candidate — Law School in Progress</h3>
+        <p>My regulated-industry career gave me a front-row seat to the intersection of law, technology, and operations. Studying for the LSAT has sharpened my analytical reasoning and logical argumentation — skills that directly complement my professional work. My goal is to bring a JD to this foundation, creating a uniquely positioned legal professional who has lived the operational complexity that legal frameworks are written to govern. I'm not pivoting into law by accident; I'm building toward it with intention.</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:1rem;">Education & Credentials</h3>
+    <div>
+      <div class="card" style="max-width:340px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Degree</div><div style="font-size:1rem;font-weight:600;">B.S. – IT Management</div><div style="font-size:13px;color:var(--mid);">Western Governors University</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="projects">
+  <div class="container">
+    <div class="section-eyebrow">Program Experience</div>
+    <h2>Legal & Compliance Case Studies</h2>
+    <div class="gold-bar"></div>
+    <div class="project-tabs">
+      <button class="project-tab active" onclick="showProject('salesforce',this)">Legal Ops · Salesforce</button>
+      <button class="project-tab" onclick="showProject('dutch',this)">DOD · Dutch Valley</button>
+      <button class="project-tab" onclick="showProject('cisco',this)">Financial · Bank of America</button>
+      <button class="project-tab" onclick="showProject('choa',this)">Healthcare · CHOA</button>
+      <button class="project-tab" onclick="showProject('amtrak',this)">Transit · Amtrak</button>
+    </div>
+
+    <div class="project-detail" id="proj-choa">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Mar 2019 – Mar 2021</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">Project Coordinator — Children's Healthcare of Atlanta</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">Cross-functional EHR integration between a specialized Patient Portal and Epic, providing 50K+ families with real-time access to clinical data under strict federal healthcare privacy law.</p>
+          <div style="margin-top:0.75rem;"><span class="badge" style="background:#fff8f8;color:#a32d2d;border-color:#f5d0d0;">Legal Focus: HIPAA/HITECH · BAA Compliance · Vendor SLA Enforcement</span></div>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">24 months</div></div>
+            <div class="meta-item"><div class="meta-label">Families</div><div class="meta-val">50,000+</div></div>
+            <div class="meta-item"><div class="meta-label">Budget</div><div class="meta-val">$500K+</div></div>
+            <div class="meta-item"><div class="meta-label">Compliance</div><div class="meta-val">HIPAA/HITECH</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Led cross-functional EHR integration between a specialized patient portal and Epic, improving clinical workflows and digital access while maintaining strict healthcare data compliance. Every vendor contract, every data touchpoint, every workflow change subject to HIPAA/HITECH governance.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Legal & Compliance Challenges</div>
+          <ul class="bullet-list">
+            <li>HIPAA/HITECH compliance across all integrated digital touchpoints handling PHI</li>
+            <li>Business Associate Agreement (BAA) compliance with all third-party vendors</li>
+            <li>Vendor liability exposure — $500K+ in contracts requiring rigorous SLA enforcement</li>
+            <li>Complete audit trail documentation requirements for all PHI-adjacent systems</li>
+            <li>Clinical workflow changes with regulatory documentation obligations</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Legal Operations Delivered</div>
+          <ul class="bullet-list">
+            <li>Zero HIPAA/HITECH violations — 100% compliance across all integrated systems</li>
+            <li>BAA terms enforced throughout vendor lifecycle with no material breaches</li>
+            <li>SLA governance with bi-weekly milestone reviews and documented escalation protocols</li>
+            <li>Complete audit-ready documentation chain for all digital touchpoints</li>
+            <li>Compliance checklists built and adopted as standard practice by the team</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h3 style="font-size:1rem;margin-bottom:1rem;">Legal Operations Lens</h3>
+      <div class="three-col">
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Privacy Law in Practice</div><p style="font-size:13px;color:var(--mid);">Live HIPAA/HITECH implementation across 50,000+ patient records — real program governance under federal law</p></div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Contract Enforcement</div><p style="font-size:13px;color:var(--mid);">SLA governance with escalation triggers, cure periods, and written milestone accountability chains across $500K+ in contracts</p></div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Risk Documentation</div><p style="font-size:13px;color:var(--mid);">RAID log as a legal-grade risk register — every compliance exposure documented, tracked, owned, and resolved</p></div>
+      </div>
+    </div>
+
+    <div class="project-detail" id="proj-dutch">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Aug 2024 – Nov 2024</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">Contract Specialist & Procurement Analyst — Dutch Valley</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">Federal procurement and contract management in support of DOD programs, working directly with prime defense contractors across the aerospace supply chain.</p>
+          <div style="margin-top:0.75rem;"><span class="badge" style="background:#fff8f8;color:#a32d2d;border-color:#f5d0d0;">Legal Focus: FAR/DFARS Compliance · RFP/RFQ Solicitation · Subcontractor Management · Cost & Price Analysis</span></div>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Sector</div><div class="meta-val">Defense / DOD</div></div>
+            <div class="meta-item"><div class="meta-label">Framework</div><div class="meta-val">FAR / DFARS</div></div>
+            <div class="meta-item"><div class="meta-label">Contractors</div><div class="meta-val">Boeing, LM, NG</div></div>
+            <div class="meta-item"><div class="meta-label">Focus</div><div class="meta-val">Federal Procurement</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Administered federal procurement and contract management activities supporting DOD programs and prime defense contractors including Boeing, Lockheed Martin, Northrop Grumman, Airbus, and Safari. Full acquisition lifecycle from RFP/RFQ development through contract award, performance management, and federal-standard audit trail documentation.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Legal & Compliance Challenges</div>
+          <ul class="bullet-list">
+            <li>Full FAR/DFARS compliance at every stage of the federal acquisition process</li>
+            <li>RFP/RFQ solicitation development from inception through award across complex aerospace supply chains</li>
+            <li>Cost and price analysis to evaluate vendor proposals and support contract award decisions</li>
+            <li>Subcontractor agreement administration and performance accountability through delivery</li>
+            <li>Federal-standard audit trail documentation across all procurement activities</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Legal Operations Delivered</div>
+          <ul class="bullet-list">
+            <li>Developed and managed RFP/RFQ solicitations from inception through award — full FAR/DFARS compliance at every stage</li>
+            <li>Conducted cost and price analysis to evaluate proposals, negotiate terms, and support contract award decisions</li>
+            <li>Administered subcontractor agreements with full performance accountability from award through delivery</li>
+            <li>Maintained federal-standard audit trails on all procurement documentation</li>
+            <li>Coordinated supply chain procurement ensuring contractual alignment between prime contractors, subcontractors, and DOD program requirements</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h3 style="font-size:1rem;margin-bottom:1rem;">Legal Operations Lens</h3>
+      <div class="three-col">
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Federal Acquisition Law</div><p style="font-size:13px;color:var(--mid);">Hands-on FAR/DFARS compliance throughout the full federal acquisition lifecycle — from solicitation through award and administration</p></div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Cost & Price Analysis</div><p style="font-size:13px;color:var(--mid);">Evaluated vendor proposals and negotiated contract terms with analytical rigor required under federal procurement standards</p></div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Subcontractor Governance</div><p style="font-size:13px;color:var(--mid);">Administered subcontractor agreements with federal-standard audit documentation and end-to-end performance accountability</p></div>
+      </div>
+    </div>
+
+    <div class="project-detail" id="proj-cisco">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Sep 2022 – Aug 2024</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">Legal Business Requirements Analyst — Cisco Systems</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">Procurement and contract compliance for a portfolio of 15+ concurrent infrastructure programs at Bank of America, a Tier-1 global financial institution.</p>
+          <div style="margin-top:0.75rem;"><span class="badge" style="background:#fff8f8;color:#a32d2d;border-color:#f5d0d0;">Legal Focus: Banking Regulatory Compliance · Vendor SOW Enforcement · Procurement Governance</span></div>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">24 months</div></div>
+            <div class="meta-item"><div class="meta-label">Projects</div><div class="meta-val">15+ concurrent</div></div>
+            <div class="meta-item"><div class="meta-label">Uptime</div><div class="meta-val">99.99%</div></div>
+            <div class="meta-item"><div class="meta-label">Budget</div><div class="meta-val">$0 overrun</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Managed procurement and contract compliance for a portfolio of 15+ concurrent infrastructure programs at a Tier-1 global financial institution — enforcing vendor agreements, hardware SLAs, and regulatory requirements with zero budget overruns across all workstreams.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Legal & Compliance Challenges</div>
+          <ul class="bullet-list">
+            <li>Banking-grade security compliance requirements across all infrastructure changes</li>
+            <li>SOW drafting and technical project charters serving as contractual basis for all vendor deliverables</li>
+            <li>FAR/DFARS-informed procurement discipline applied to private sector vendor sourcing</li>
+            <li>Vendor compliance gap identification and contractual issue escalation across 15+ workstreams</li>
+            <li>Compliance documentation and risk matrices required by engineering, finance, legal, and security teams</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Legal Operations Delivered</div>
+          <ul class="bullet-list">
+            <li>Drafted and maintained SOWs, technical project charters, and requirements documentation as contractual basis for all vendor deliverables</li>
+            <li>Applied FAR/DFARS-informed procurement discipline to hardware procurement and subcontractor RFP processes</li>
+            <li>Maintained centralized contract risk and RAID logs — proactively identifying vendor compliance gaps</li>
+            <li>Sustained 99.99% system uptime through all critical infrastructure transitions</li>
+            <li>Produced compliance documentation, risk matrices, and executive-level status reports for all stakeholder groups</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h3 style="font-size:1rem;margin-bottom:1rem;">Legal Operations Lens</h3>
+      <div class="three-col">
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Financial Regulation</div><p style="font-size:13px;color:var(--mid);">Banking-grade security mandates governing Tier-1 financial infrastructure — real-world exposure to financial regulatory compliance</p></div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Procurement Governance</div><p style="font-size:13px;color:var(--mid);">Vendor contract management, hardware procurement compliance, and zero-overrun budget discipline at enterprise scale</p></div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Portfolio Risk</div><p style="font-size:13px;color:var(--mid);">Managing regulatory exposure across 15+ simultaneous workstreams with unified RAID oversight and audit documentation</p></div>
+      </div>
+    </div>
+
+    <div class="project-detail active" id="proj-salesforce">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Dec 2024 – Jun 2025</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">Legal Operations & Contracts Manager — Salesforce</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">End-to-end contract governance and vendor delivery accountability for a 6-month enterprise SAP S/4HANA × Salesforce Service Cloud integration program.</p>
+          <div style="margin-top:0.75rem;"><span class="badge" style="background:#fff8f8;color:#a32d2d;border-color:#f5d0d0;">Legal Focus: Contract Governance · SOW Enforcement · Data Governance · Formal Approval Chains</span></div>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">6 months</div></div>
+            <div class="meta-item"><div class="meta-label">Users</div><div class="meta-val">200+ global</div></div>
+            <div class="meta-item"><div class="meta-label">Data Integrity</div><div class="meta-val">100%</div></div>
+            <div class="meta-item"><div class="meta-label">Methodology</div><div class="meta-val">Agile / SAFe</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Managed end-to-end contract governance and vendor delivery accountability for a 6-month enterprise technology integration program, overseeing SOW scope definition, milestone enforcement, and formal deliverable sign-off across all third-party engagements.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Legal & Compliance Challenges</div>
+          <ul class="bullet-list">
+            <li>Financial data governance during ERP-to-CRM migration — protecting contractual data integrity</li>
+            <li>Defining API data ownership requirements and middleware agreements between SAP, Salesforce, and Finance</li>
+            <li>Formal sign-off and approval protocols for UAT and go-live decision gates</li>
+            <li>Change management documentation for compliance and audit requirements</li>
+            <li>Global user rollout requiring documented training and written contractual handoff protocols</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Legal Operations Delivered</div>
+          <ul class="bullet-list">
+            <li>Facilitated legal and technical discovery sessions to define API data ownership and middleware agreements</li>
+            <li>Directed data mapping governance for billing cycles and service order workflows — 100% contractual data integrity</li>
+            <li>Formal UAT sign-off gates with structured defect tracking and written approval chains</li>
+            <li>Developed compliance-aligned user acceptance documentation for 200+ users</li>
+            <li>Reduced post-launch support escalations by 20% through clear contractual handoff protocols</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h3 style="font-size:1rem;margin-bottom:1rem;">Legal Operations Lens</h3>
+      <div class="three-col">
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Data Governance</div><p style="font-size:13px;color:var(--mid);">Financial data integrity obligations managed end-to-end with complete audit documentation and formal sign-off chains</p></div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Approval Chains</div><p style="font-size:13px;color:var(--mid);">Written sign-off protocols at every gate — analogous to legal execution and countersignature processes</p></div>
+        <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Change Control</div><p style="font-size:13px;color:var(--mid);">Formal change request process with written evaluation — preventing scope expansion and limiting exposure throughout delivery</p></div>
+      </div>
+    </div>
+
+    <div class="project-detail" id="proj-amtrak">
+      <div class="project-header">
+        <div>
+          <div class="badge green">Jan 2017 – Dec 2018</div>
+          <h3 style="margin-top:0.75rem;font-size:1.4rem;">System Administrator — Amtrak</h3>
+          <p style="color:var(--mid);margin-top:0.5rem;font-size:14px;">Regional transit infrastructure and capital improvement programs — foundational exposure to government regulatory compliance and public accountability frameworks.</p>
+          <div style="margin-top:0.75rem;"><span class="badge" style="background:#fff8f8;color:#a32d2d;border-color:#f5d0d0;">Legal Focus: Government Compliance · Capital Program Governance · Public Law</span></div>
+        </div>
+        <div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">24 months</div></div>
+            <div class="meta-item"><div class="meta-label">Sector</div><div class="meta-val">Transit / Gov</div></div>
+            <div class="meta-item"><div class="meta-label">Program</div><div class="meta-val">Capital Improvement</div></div>
+            <div class="meta-item"><div class="meta-label">Focus</div><div class="meta-val">Infrastructure</div></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--slate);">Supported regional transit infrastructure and capital improvement programs under federal and state regulatory oversight. This role built the foundational documentation discipline and compliance mindset carried through all subsequent engagements.</p>
+      <div class="issue-solution">
+        <div class="issue-block">
+          <div class="block-label">⚠ Legal & Compliance Challenges</div>
+          <ul class="bullet-list">
+            <li>Government regulatory compliance for public infrastructure operations</li>
+            <li>Capital improvement programs subject to federal and state funding requirements</li>
+            <li>Multi-year planning horizons with shifting regulatory and political priorities</li>
+            <li>Public accountability and documentation obligations for government entities</li>
+          </ul>
+        </div>
+        <div class="solution-block">
+          <div class="block-label">✓ Contributions</div>
+          <ul class="bullet-list">
+            <li>Built foundational understanding of government compliance and public law frameworks</li>
+            <li>Technical alignment between capital planning and regulatory requirements</li>
+            <li>Documentation practices refined here and carried through all subsequent regulated work</li>
+            <li>Government-grade audit trail discipline established as a personal standard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 30/60/90 -->
+<section id="plan">
+  <div class="container">
+    <div class="section-eyebrow">Onboarding Strategy</div>
+    <h2>30 · 60 · 90 Day Plan</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">A structured ramp-up for a legal team — listening first, then contributing, then leading. Built on the same discipline I've applied to every regulated program.</p>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-card-header"><div class="plan-day-num">30</div><div class="plan-day-label">Days — Listen & Learn</div></div>
+        <div class="plan-card-body">
+          <div class="plan-goal">Foundation & Discovery</div>
+          <ul class="plan-items">
+            <li>Meet all legal counsel, ops leads, and key stakeholders</li>
+            <li>Audit active matters, contract pipeline, and documentation systems</li>
+            <li>Map existing compliance frameworks and identify gaps</li>
+            <li>Understand current matter management and billing workflows</li>
+            <li>Review vendor contracts, SOWs, and Master Service Agreements</li>
+            <li>Shadow contract review, regulatory filings, and legal ops processes</li>
+            <li>Identify quick wins in documentation or process efficiency</li>
+            <li>Learn escalation paths and team communication preferences</li>
+          </ul>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-header"><div class="plan-day-num">60</div><div class="plan-day-label">Days — Contribute & Refine</div></div>
+        <div class="plan-card-body">
+          <div class="plan-goal">Ownership & Optimization</div>
+          <ul class="plan-items">
+            <li>Take ownership of assigned contract or compliance workstreams</li>
+            <li>Formalize or improve matter tracking and risk log processes</li>
+            <li>Build standardized contract status reporting for stakeholders</li>
+            <li>Establish vendor SLA tracking and escalation protocols</li>
+            <li>Deliver first independent legal ops update to leadership</li>
+            <li>Tighten documentation standards across all active matters</li>
+            <li>Begin identifying regulatory risk patterns across the portfolio</li>
+            <li>Propose quick-win process improvements with supporting data</li>
+          </ul>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-header"><div class="plan-day-num">90</div><div class="plan-day-label">Days — Lead & Scale</div></div>
+        <div class="plan-card-body">
+          <div class="plan-goal">Delivery & Impact</div>
+          <ul class="plan-items">
+            <li>Deliver first measurable legal ops milestone or contract cycle</li>
+            <li>Present 90-day retrospective and forward roadmap to leadership</li>
+            <li>Propose process improvements backed by observed data</li>
+            <li>Formalize legal ops playbook for team's recurring workflows</li>
+            <li>Establish KPIs for matter management and compliance tracking</li>
+            <li>Drive cross-functional alignment with outside counsel and vendors</li>
+            <li>Begin planning next quarter's legal ops program roadmap</li>
+            <li>Identify automation opportunities for routine legal ops tasks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:1rem;">Key Metrics I'll Track</h3>
+    <div class="two-col">
+      <div>
+        <div class="progress-row"><span class="progress-label">Contract cycle time</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:92%"></div></div><span class="progress-pct">92%</span></div>
+        <div class="progress-row"><span class="progress-label">SLA compliance rate</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:100%"></div></div><span class="progress-pct">100%</span></div>
+        <div class="progress-row"><span class="progress-label">Regulatory violations</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:100%"></div></div><span class="progress-pct">0</span></div>
+        <div class="progress-row"><span class="progress-label">Documentation coverage</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:95%"></div></div><span class="progress-pct">95%</span></div>
+      </div>
+      <div>
+        <div class="progress-row"><span class="progress-label">Stakeholder satisfaction</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:92%"></div></div><span class="progress-pct">92%</span></div>
+        <div class="progress-row"><span class="progress-label">Risk items resolved</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:88%"></div></div><span class="progress-pct">88%</span></div>
+        <div class="progress-row"><span class="progress-label">On-time delivery</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:96%"></div></div><span class="progress-pct">96%</span></div>
+        <div class="progress-row"><span class="progress-label">Audit readiness</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:100%"></div></div><span class="progress-pct">100%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATTER BOARD -->
+<section id="kanban">
+  <div class="container">
+    <div class="section-eyebrow">Legal Operations Workflow</div>
+    <h2>Matter & Contract Tracking Board</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">How I keep legal workstreams visible, prioritized, and moving. Drag cards between columns to see how I manage matter flow.</p>
+    <div style="display:flex;gap:10px;margin-bottom:1rem;flex-wrap:wrap;">
+      <button class="project-tab active" style="flex:none;min-width:auto;" onclick="switchKanban('contracts',this)">Contract Pipeline</button>
+      <button class="project-tab" style="flex:none;min-width:auto;" onclick="switchKanban('compliance',this)">Compliance Program</button>
+    </div>
+    <div id="kanban-contracts">
+      <div class="kanban-board">
+        <div class="kanban-col" id="kb-con-backlog" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-con-backlog')">
+          <div class="kanban-col-header"><span class="kanban-col-title">Backlog</span><span class="kanban-count">3</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Annual vendor contract renewals — Q4</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Renewal</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Draft NDA template — new vendor class</div><div class="kcard-meta"><span class="kcard-tag tag-low">Low</span><span class="kcard-tag tag-type">Template</span><span class="kcard-assignee">Legal</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Update SLA escalation matrix — all vendors</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Governance</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-con-inprog" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-con-inprog')">
+          <div class="kanban-col-header"><span class="kanban-col-title">In Progress</span><span class="kanban-count">3</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">MSA redline review — Vendor ABC</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">MSA</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">SOW milestone tracking — implementation partner</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">SOW</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Change order evaluation — scope expansion request</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Change Ctrl</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-con-review" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-con-review')">
+          <div class="kanban-col-header"><span class="kanban-col-title">In Review</span><span class="kanban-count">2</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">BAA sign-off — new technology vendor</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">BAA</span><span class="kcard-assignee">Counsel</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Contract summary — exec sponsor approval</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Approval</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-con-done" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-con-done')">
+          <div class="kanban-col-header"><span class="kanban-col-title">Executed</span><span class="kanban-count">4</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Master vendor agreement — signed & filed</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">MSA</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">SLA baseline established — Vendor XYZ</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">SLA</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Termination clause review — legacy contract</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Review</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Vendor onboarding compliance checklist</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Compliance</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="kanban-compliance" style="display:none;">
+      <div class="kanban-board">
+        <div class="kanban-col" id="kb-cmp-backlog" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-cmp-backlog')">
+          <div class="kanban-col-header"><span class="kanban-col-title">Backlog</span><span class="kanban-count">3</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Annual HIPAA training refresh — all staff</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Training</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Policy update — data retention schedule</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Policy</span><span class="kcard-assignee">Legal</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Compile lessons learned — Q3 audit</div><div class="kcard-meta"><span class="kcard-tag tag-low">Low</span><span class="kcard-tag tag-type">Audit</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-cmp-inprog" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-cmp-inprog')">
+          <div class="kanban-col-header"><span class="kanban-col-title">In Progress</span><span class="kanban-count">3</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Regulatory gap analysis — new data privacy law</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Compliance</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Vendor risk assessment — Q4 cohort</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Risk</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Update compliance RAID log — monthly</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Risk</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-cmp-review" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-cmp-review')">
+          <div class="kanban-col-header"><span class="kanban-col-title">In Review</span><span class="kanban-count">2</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Privacy policy update — legal sign-off required</div><div class="kcard-meta"><span class="kcard-tag tag-high">High</span><span class="kcard-tag tag-type">Policy</span><span class="kcard-assignee">Counsel</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Audit readiness report — board presentation</div><div class="kcard-meta"><span class="kcard-tag tag-med">Medium</span><span class="kcard-tag tag-type">Audit</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+        <div class="kanban-col" id="kb-cmp-done" ondragover="kbDragOver(event)" ondrop="kbDrop(event,'kb-cmp-done')">
+          <div class="kanban-col-header"><span class="kanban-col-title">Closed</span><span class="kanban-count">4</span></div>
+          <div class="kanban-cards">
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Annual compliance audit — zero findings</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Audit</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">HIPAA breach response protocol documented</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Policy</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Vendor compliance scorecard — Q3</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Vendor</span><span class="kcard-assignee">EE</span></div></div>
+            <div class="kanban-card" draggable="true" ondragstart="kbDragStart(event)"><div class="kcard-title">Security protocol baseline documented</div><div class="kcard-meta"><span class="kcard-tag tag-low">Done</span><span class="kcard-tag tag-type">Security</span><span class="kcard-assignee">EE</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-eyebrow">Capabilities</div>
+    <h2>Skills & Expertise</h2>
+    <div class="gold-bar"></div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-cat-label">Legal Operations & Contracts</div>
+        <span class="skill-pill"><span class="skill-dot"></span>Contract Lifecycle Management</span>
+        <span class="skill-pill"><span class="skill-dot"></span>SOW & MSA Development</span>
+        <span class="skill-pill"><span class="skill-dot"></span>FAR / DFARS Compliance</span>
+        <span class="skill-pill"><span class="skill-dot"></span>RFP / RFQ Solicitation</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Federal Procurement & Award</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Subcontractor Management</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Cost & Price Analysis</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Vendor Negotiation & SLA Enforcement</span>
+        <span class="skill-pill"><span class="skill-dot"></span>HIPAA / HITECH Compliance</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Audit Trail Documentation</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Change Control & Approval Chains</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Program Management</div>
+        <span class="skill-pill"><span class="skill-dot"></span>Agile / Scrum / SAFe</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Waterfall / Hybrid PMI</span>
+        <span class="skill-pill"><span class="skill-dot"></span>RAID Log Management</span>
+        <span class="skill-pill"><span class="skill-dot"></span>RACI Frameworks</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Executive Stakeholder Mgmt</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Portfolio Oversight (15+)</span>
+        <span class="skill-pill"><span class="skill-dot"></span>ERP / CRM Integration</span>
+        <span class="skill-pill"><span class="skill-dot"></span>EHR (Epic) Programs</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Legal Education in Progress</div>
+        <span class="skill-pill"><span class="skill-dot"></span>LSAT Preparation</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Law School Candidate</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Legal Reasoning & Analysis</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Logical Argumentation</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Analytical Thinking</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Legal Reading Comprehension</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Technology Platforms</div>
+        <span class="skill-pill"><span class="skill-dot"></span>Salesforce Service Cloud</span>
+        <span class="skill-pill"><span class="skill-dot"></span>SAP S/4HANA</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Epic EHR</span>
+        <span class="skill-pill"><span class="skill-dot"></span>ServiceNow</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Jira / Confluence</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Smartsheet</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Microsoft Project</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Data Privacy & Governance</div>
+        <span class="skill-pill"><span class="skill-dot"></span>PHI Data Governance</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Data Integrity Management</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Financial Data Compliance</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Security Protocol Adherence</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Breach Response Planning</span>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-label">Communication & Leadership</div>
+        <span class="skill-pill"><span class="skill-dot"></span>Executive Communication</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Cross-functional Leadership</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Legal-to-Business Translation</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Negotiation</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Change Management</span>
+        <span class="skill-pill"><span class="skill-dot"></span>Conflict Resolution</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.5rem;">Regulated Industry Experience</h3>
+    <div style="margin-top:1rem;display:flex;gap:10px;flex-wrap:wrap;">
+      <span class="badge dark">Defense / DOD</span>
+      <span class="badge dark">Financial Services</span>
+      <span class="badge dark">Healthcare / HIPAA</span>
+      <span class="badge dark">Government / Transit</span>
+      <span class="badge dark">Enterprise Technology</span>
+      <span class="badge dark">Legal Operations</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section id="docs">
+  <div class="container">
+    <div class="section-eyebrow">Legal Operations Artifacts</div>
+    <h2>Documents & Frameworks</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">A sample of the legal operations deliverables I create and maintain — from contract tracking to compliance reporting.</p>
+    <div class="docs-grid">
+      <div class="doc-card" onclick="openModal('modal-clm')">
+        <div class="doc-preview">
+          <div class="doc-preview-inner">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px;">Contract Status Tracker</div>
+            <table style="width:100%;border-collapse:collapse;font-size:9px;">
+              <tr style="background:var(--ink);color:var(--gold);"><th style="padding:4px 6px;text-align:left;">Vendor</th><th style="padding:4px 6px;">Type</th><th style="padding:4px 6px;">Expiry</th><th style="padding:4px 6px;">Status</th></tr>
+              <tr><td style="padding:4px 6px;border-bottom:1px solid #eee;">Vendor ABC</td><td style="padding:4px 6px;">MSA</td><td style="padding:4px 6px;">Dec 2025</td><td style="text-align:center;padding:4px 6px;"><span style="background:#e8f4ee;color:#1a3a2f;border-radius:4px;padding:1px 5px;font-weight:700;">Active</span></td></tr>
+              <tr><td style="padding:4px 6px;border-bottom:1px solid #eee;">Tech Partner</td><td>SOW</td><td style="padding:4px 6px;">Mar 2026</td><td style="text-align:center;"><span style="background:#fef3e2;color:#854f0b;border-radius:4px;padding:1px 5px;font-weight:700;">Review</span></td></tr>
+              <tr><td style="padding:4px 6px;">Data Vendor</td><td>BAA</td><td style="padding:4px 6px;">Jun 2025</td><td style="text-align:center;"><span style="background:#fde8e8;color:#a32d2d;border-radius:4px;padding:1px 5px;font-weight:700;">Renew</span></td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="doc-meta"><div><div class="doc-name">Contract Status Tracker</div><div class="doc-type">Contract Lifecycle Management</div></div><button class="doc-open-btn">View</button></div>
+      </div>
+      <div class="doc-card" onclick="openModal('modal-raid')">
+        <div class="doc-preview">
+          <div class="doc-preview-inner">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px;">Compliance RAID Log</div>
+            <table style="width:100%;border-collapse:collapse;font-size:8.5px;">
+              <tr style="background:var(--ink);color:var(--cream);"><th style="padding:3px 5px;text-align:left;">ID</th><th>Type</th><th style="padding:3px 5px;text-align:left;">Description</th><th style="padding:3px 5px;">Status</th></tr>
+              <tr><td style="padding:3px 5px;border-bottom:1px solid #eee;">R-01</td><td>Risk</td><td>HIPAA gap — new vendor integration</td><td style="text-align:center;"><span style="background:#fde8e8;color:#a32d2d;padding:1px 5px;border-radius:4px;">Open</span></td></tr>
+              <tr><td style="padding:3px 5px;border-bottom:1px solid #eee;">A-01</td><td>Assumption</td><td>BAA covers all data sub-processors</td><td style="text-align:center;"><span style="background:#fef3e2;color:#854f0b;padding:1px 5px;border-radius:4px;">Monitor</span></td></tr>
+              <tr><td style="padding:3px 5px;">I-01</td><td>Issue</td><td>Contract renewal missed 30-day notice</td><td style="text-align:center;"><span style="background:#e8f4ee;color:#1a3a2f;padding:1px 5px;border-radius:4px;">Resolved</span></td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="doc-meta"><div><div class="doc-name">Compliance RAID Log</div><div class="doc-type">Risk & Issue Tracker</div></div><button class="doc-open-btn">View</button></div>
+      </div>
+      <div class="doc-card" onclick="openModal('modal-status')">
+        <div class="doc-preview">
+          <div class="doc-preview-inner">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px;">Legal Ops Status Report</div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;">
+              <div style="flex:1;background:#e8f4ee;border-radius:5px;padding:4px 6px;text-align:center;"><div style="font-size:8px;color:#1a3a2f;font-weight:700;">Contracts</div><div style="font-size:12px;font-weight:900;color:#1a3a2f;">ON</div></div>
+              <div style="flex:1;background:#e8f4ee;border-radius:5px;padding:4px 6px;text-align:center;"><div style="font-size:8px;color:#1a3a2f;font-weight:700;">Compliance</div><div style="font-size:12px;font-weight:900;color:#1a3a2f;">ON</div></div>
+              <div style="flex:1;background:#fef3e2;border-radius:5px;padding:4px 6px;text-align:center;"><div style="font-size:8px;color:#854f0b;font-weight:700;">Vendor Risk</div><div style="font-size:12px;font-weight:900;color:#854f0b;">AT</div></div>
+            </div>
+            <div style="font-size:8px;color:#888;margin-top:4px;">Open Matters · Risks · Upcoming Renewals</div>
+          </div>
+        </div>
+        <div class="doc-meta"><div><div class="doc-name">Legal Ops Status Report</div><div class="doc-type">Stakeholder Communication</div></div><button class="doc-open-btn">View</button></div>
+      </div>
+      <div class="doc-card" onclick="openModal('modal-raci')">
+        <div class="doc-preview">
+          <div class="doc-preview-inner">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px;">RACI — Contract Review Process</div>
+            <table style="width:100%;border-collapse:collapse;font-size:9px;">
+              <tr style="background:var(--ink);color:var(--gold);"><th style="padding:4px 6px;text-align:left;">Task</th><th style="padding:4px 6px;">Ops</th><th style="padding:4px 6px;">Legal</th><th style="padding:4px 6px;">Exec</th></tr>
+              <tr><td style="padding:4px 6px;border-bottom:1px solid #eee;">Contract Intake</td><td style="text-align:center;padding:4px 6px;"><span style="background:#1a3a2f;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;">R</span></td><td style="text-align:center;"><span style="background:#e8f4ee;color:#1a3a2f;border-radius:4px;padding:1px 5px;font-weight:800;">C</span></td><td style="text-align:center;"><span style="background:#f0f0f0;color:#888;border-radius:4px;padding:1px 5px;font-weight:800;">I</span></td></tr>
+              <tr><td style="padding:4px 6px;">Legal Review</td><td style="text-align:center;"><span style="background:#e8f4ee;color:#1a3a2f;border-radius:4px;padding:1px 5px;font-weight:800;">C</span></td><td style="text-align:center;"><span style="background:#1a3a2f;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;">R</span></td><td style="text-align:center;"><span style="background:#c9a84c;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;">A</span></td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="doc-meta"><div><div class="doc-name">RACI — Contract Process</div><div class="doc-type">Responsibility Assignment</div></div><button class="doc-open-btn">View</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section id="value">
+  <div class="container">
+    <div class="section-eyebrow">My Differentiator</div>
+    <h2>What I Bring to a Legal Team</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">Beyond managing contracts and compliance checklists — I bring a unique combination of regulatory fluency, operational discipline, and legal trajectory that few candidates can match.</p>
+    <div class="value-grid">
+      <div class="value-card"><div class="value-icon">⚖️</div><div class="value-title">Compliance-First Mindset</div><p class="value-desc">Zero compliance violations across Finance, Healthcare, and Transit. Regulatory adherence isn't an afterthought — it's how I build programs from day one. My record proves it.</p></div>
+      <div class="value-card"><div class="value-icon">📄</div><div class="value-title">Contract & Vendor Governance</div><p class="value-desc">$500K+ in vendor relationships managed with zero material SLA breaches. I draft, enforce, and track contractual obligations the way legal professionals do — in writing, with accountability chains.</p></div>
+      <div class="value-card"><div class="value-icon">🔗</div><div class="value-title">Legal-to-Business Bridge</div><p class="value-desc">I translate complex legal and regulatory requirements for executives, engineers, and clinical teams — and translate operational realities back to legal counsel. I bridge both directions.</p></div>
+      <div class="value-card"><div class="value-icon">🔒</div><div class="value-title">Data & Privacy Governance</div><p class="value-desc">Real-world HIPAA/HITECH implementation across 50,000+ patient records. I've built the processes that keep organizations out of regulatory trouble — not just the documentation proving compliance after the fact.</p></div>
+      <div class="value-card"><div class="value-icon">📊</div><div class="value-title">Legal Ops Infrastructure</div><p class="value-desc">RAID logs, RACI matrices, SOWs, and project charters are legal ops infrastructure. I build the systems that make legal programs auditable, defensible, and scalable — across three regulated sectors.</p></div>
+      <div class="value-card"><div class="value-icon">📈</div><div class="value-title">Law School in Progress</div><p class="value-desc">Active LSAT preparation signals intentionality. I'm building toward a legal career grounded in operational excellence — not passing through legal ops on my way somewhere else.</p></div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:1.25rem;">Education & Credentials</h3>
+    <div>
+      <div class="card" style="max-width:340px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">Degree</div><div style="font-size:1rem;font-weight:600;">B.S. – IT Management</div><div style="font-size:13px;color:var(--mid);">Western Governors University</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="container">
+    <div class="section-eyebrow">Leadership Philosophy</div>
+    <h2>How I Lead & Operate</h2>
+    <div class="gold-bar"></div>
+    <p class="lead">Legal programs succeed or fail in the relationships between people and the discipline of documentation. Here's how I build both.</p>
+    <div class="divider" style="margin:1.5rem 0;"></div>
+    <h3 style="margin-bottom:0.25rem;">Building Trust in Legal Environments</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">Legal professionals trust people who get the details right. I build credibility before I need it.</p>
+    <div class="insight-grid">
+      <div class="insight-card"><div class="insight-num">01 — Precision</div><div class="insight-title">Earn Trust Through Detail</div><p class="insight-body">Zero surprises. Meticulous documentation. Proactive risk communication. Eight years of zero compliance violations isn't luck — it's discipline applied consistently.</p></div>
+      <div class="insight-card"><div class="insight-num">02 — Transparency</div><div class="insight-title">RAG Status. Always Honest.</div><p class="insight-body">I never hide a red status behind optimistic language. Legal teams need accurate pictures to make sound decisions. I give them the truth — and a mitigation plan.</p></div>
+      <div class="insight-card"><div class="insight-num">03 — Accountability</div><div class="insight-title">Own the Outcomes</div><p class="insight-body">Zero budget overruns. Zero compliance violations. Zero data integrity failures. I don't just manage tasks — I'm accountable for results. The record reflects that.</p></div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.25rem;">Influence Without Authority in Legal Programs</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">Legal ops requires driving outcomes across teams that don't report to you. Here's my approach.</p>
+    <div class="insight-grid">
+      <div class="insight-card"><div class="insight-num">01 — Evidence</div><div class="insight-title">Lead With Data</div><p class="insight-body">Legal professionals respond to evidence. RAID logs, KPIs, and compliance records make my recommendations difficult to dispute and easy to act on.</p></div>
+      <div class="insight-card"><div class="insight-num">02 — Alignment</div><div class="insight-title">Find the Shared Mandate</div><p class="insight-body">Legal teams, business units, and engineering teams have competing interests. I find the shared compliance obligation that aligns everyone toward the same resolution.</p></div>
+      <div class="insight-card"><div class="insight-num">03 — Track Record</div><div class="insight-title">Consistent Execution</div><p class="insight-body">Zero overruns and zero violations earns the credibility to push back on scope creep, negotiate timelines, and hold vendors accountable — without formal authority.</p></div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.25rem;">Adaptive Communication with Legal Stakeholders</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">I adjust style, depth, and format based on who I'm talking to — always precise, never condescending.</p>
+    <div class="comm-grid">
+      <div class="comm-card"><div class="comm-who">General Counsel & Legal Leadership</div><div class="comm-style">Strategic, outcome-focused</div><div class="comm-tools">Executive briefs · RAG summaries · Matter dashboards</div><div class="comm-quote">"Two vendor contracts expire in 45 days. Here are three resolution options with risk profiles for each."</div></div>
+      <div class="comm-card"><div class="comm-who">Outside Counsel</div><div class="comm-style">Precise, document-ready</div><div class="comm-tools">RAID logs · Contract redlines · Audit trails · Chronologies</div><div class="comm-quote">"The full document chain is organized by matter and date. Everything you need is already labeled and filed."</div></div>
+      <div class="comm-card"><div class="comm-who">Business & Operations Teams</div><div class="comm-style">Practical, compliance-grounded</div><div class="comm-tools">Policy guides · Compliance checklists · Training materials</div><div class="comm-quote">"This workflow change keeps us HIPAA-compliant and saves your team 15 minutes per intake. Here's what it looks like."</div></div>
+      <div class="comm-card"><div class="comm-who">Vendors & External Partners</div><div class="comm-style">Contract-aware, firm but collaborative</div><div class="comm-tools">SLA trackers · Milestone reports · Escalation protocols</div><div class="comm-quote">"You're at 82% SLA compliance against the contract baseline. What support do you need to close that gap by Friday?"</div></div>
+    </div>
+    <div class="divider"></div>
+    <h3 style="margin-bottom:0.25rem;">Legal Education as a Force Multiplier</h3>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;">My LSAT preparation isn't separate from my professional work — it sharpens the skills I use every day.</p>
+    <div class="three-col">
+      <div class="card"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.5rem;">Analytical Reasoning</div><p style="font-size:13px;color:var(--mid);">LSAT logic games and analytical reasoning have sharpened my ability to identify patterns, dependencies, and logical gaps in complex regulatory frameworks</p></div>
+      <div class="card"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.5rem;">Legal Reading</div><p style="font-size:13px;color:var(--mid);">Dense reading comprehension practice translates directly to contract review, regulatory interpretation, and parsing complex legal language quickly and accurately</p></div>
+      <div class="card"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.5rem;">Intentional Trajectory</div><p style="font-size:13px;color:var(--mid);">Preparing for law school while working in legal ops creates a practitioner who thinks like a future attorney — bridging operational execution with legal reasoning</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-clm" onclick="closeModal('modal-clm')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div><h3 style="font-size:1rem;">Contract Lifecycle Tracker</h3><p style="font-size:12px;color:var(--mid);margin-top:2px;">Active Contract Pipeline — All Vendors</p></div>
+      <button class="modal-close" onclick="closeModal('modal-clm')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="overflow-x:auto;">
+        <table class="status-table">
+          <thead><tr><th>Vendor</th><th>Type</th><th>Value</th><th>Start</th><th>Expiry</th><th>SLA %</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600;">Vendor ABC</td><td>MSA + SOW</td><td>$250K</td><td>Jan 2024</td><td>Dec 2025</td><td><span style="color:#2d9c5e;font-weight:600;">98%</span></td><td><span class="status-dot green">Active</span></td></tr>
+            <tr><td style="font-weight:600;">Tech Partner</td><td>SOW</td><td>$120K</td><td>Apr 2024</td><td>Mar 2026</td><td><span style="color:#c9a84c;font-weight:600;">85%</span></td><td><span class="status-dot amber">Review</span></td></tr>
+            <tr><td style="font-weight:600;">Data Vendor</td><td>BAA + MSA</td><td>$75K</td><td>Jul 2022</td><td>Jun 2025</td><td><span style="color:#c0392b;font-weight:600;">72%</span></td><td><span class="status-dot red">Renew Now</span></td></tr>
+            <tr><td style="font-weight:600;">Infra Partner</td><td>MSA</td><td>$180K</td><td>Sep 2023</td><td>Sep 2026</td><td><span style="color:#2d9c5e;font-weight:600;">100%</span></td><td><span class="status-dot green">Active</span></td></tr>
+            <tr><td style="font-weight:600;">Security Vendor</td><td>SOW</td><td>$60K</td><td>Feb 2025</td><td>Feb 2026</td><td><span style="color:#2d9c5e;font-weight:600;">96%</span></td><td><span class="status-dot green">Active</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:1.5rem;padding:1rem;background:var(--gold-pale);border:1px solid var(--gold-light);border-radius:8px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.4rem;">Action Items</div>
+        <ul class="bullet-list">
+          <li>Data Vendor BAA expires in 45 days — renewal package in preparation for legal review</li>
+          <li>Tech Partner SLA at 85% — cure period initiated, vendor meeting scheduled this week</li>
+          <li>All contracts reviewed quarterly for scope alignment and compliance status</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-raid" onclick="closeModal('modal-raid')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div><h3 style="font-size:1rem;">Compliance RAID Log</h3><p style="font-size:12px;color:var(--mid);margin-top:2px;">Risks · Assumptions · Issues · Dependencies</p></div>
+      <button class="modal-close" onclick="closeModal('modal-raid')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="overflow-x:auto;">
+        <table class="status-table">
+          <thead><tr><th>ID</th><th>Type</th><th>Description</th><th>Owner</th><th>Impact</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">R-01</td><td><span class="badge" style="font-size:10px;">Risk</span></td><td>HIPAA gap identified in new vendor's data handling</td><td>EE / Legal</td><td><span style="color:#a32d2d;font-weight:600;">High</span></td><td><span class="status-dot amber">Mitigating</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">R-02</td><td><span class="badge" style="font-size:10px;">Risk</span></td><td>Contract auto-renewal clause — vendor may escalate rates</td><td>EE</td><td><span style="color:#854f0b;font-weight:600;">Med</span></td><td><span class="status-dot amber">Monitor</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">A-01</td><td><span class="badge" style="font-size:10px;">Assumption</span></td><td>BAA covers all sub-processors engaged by vendor</td><td>EE</td><td><span style="color:#854f0b;font-weight:600;">Med</span></td><td><span class="status-dot amber">Verify</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">A-02</td><td><span class="badge" style="font-size:10px;">Assumption</span></td><td>State privacy law changes won't impact existing contracts</td><td>Legal</td><td><span style="color:#2d9c5e;font-weight:600;">Low</span></td><td><span class="status-dot green">Confirmed</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">I-01</td><td><span class="badge" style="font-size:10px;">Issue</span></td><td>Vendor missed 30-day renewal notice window</td><td>EE</td><td><span style="color:#a32d2d;font-weight:600;">High</span></td><td><span class="status-dot green">Resolved</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">I-02</td><td><span class="badge" style="font-size:10px;">Issue</span></td><td>SLA reporting gap — vendor not providing monthly metrics</td><td>EE</td><td><span style="color:#854f0b;font-weight:600;">Med</span></td><td><span class="status-dot amber">Open</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">D-01</td><td><span class="badge" style="font-size:10px;">Dependency</span></td><td>Legal sign-off required before new vendor goes live</td><td>Counsel</td><td><span style="color:#a32d2d;font-weight:600;">High</span></td><td><span class="status-dot amber">Pending</span></td></tr>
+            <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">D-02</td><td><span class="badge" style="font-size:10px;">Dependency</span></td><td>Security audit must complete before BAA execution</td><td>SecOps</td><td><span style="color:#a32d2d;font-weight:600;">High</span></td><td><span class="status-dot green">Complete</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-status" onclick="closeModal('modal-status')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div><h3 style="font-size:1rem;">Legal Ops Status Report — Month 3</h3><p style="font-size:12px;color:var(--mid);margin-top:2px;">Legal Operations Program · Ericka L. Edmond</p></div>
+      <button class="modal-close" onclick="closeModal('modal-status')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;gap:10px;margin-bottom:1.5rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:100px;background:#e8f4ee;border:1px solid #b5d9c4;border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#1a3a2f;">Contracts</div><div style="font-size:1.1rem;font-weight:800;color:#1a3a2f;">ON TRACK</div></div>
+        <div style="flex:1;min-width:100px;background:#e8f4ee;border:1px solid #b5d9c4;border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#1a3a2f;">Compliance</div><div style="font-size:1.1rem;font-weight:800;color:#1a3a2f;">ON TRACK</div></div>
+        <div style="flex:1;min-width:100px;background:#fef3e2;border:1px solid #f5d0a0;border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#854f0b;">Vendor Risk</div><div style="font-size:1.1rem;font-weight:800;color:#854f0b;">AT RISK</div></div>
+        <div style="flex:1;min-width:100px;background:#e8f4ee;border:1px solid #b5d9c4;border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#1a3a2f;">Audit Ready</div><div style="font-size:1.1rem;font-weight:800;color:#1a3a2f;">YES</div></div>
+      </div>
+      <h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:0.6rem;">Accomplishments This Month</h3>
+      <ul class="bullet-list" style="margin-bottom:1.25rem;">
+        <li>Executed 2 MSA renewals on time — zero auto-renewal escalations</li>
+        <li>Resolved RAID Issue I-01: vendor cure period completed, SLA compliance restored to 96%</li>
+        <li>Completed quarterly contract audit — all documentation current and audit-ready</li>
+        <li>Standardized vendor onboarding compliance checklist deployed across all new engagements</li>
+      </ul>
+      <h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#a32d2d;margin-bottom:0.6rem;">Risks & Issues</h3>
+      <ul class="bullet-list" style="margin-bottom:1.25rem;">
+        <li><strong>Vendor Risk at risk:</strong> Tech Partner SLA at 85% — cure period initiated, escalation protocol active</li>
+        <li>Data Vendor BAA expires in 45 days — renewal package in preparation for outside counsel</li>
+        <li>R-01 HIPAA gap open — new vendor integration paused pending compliance review</li>
+      </ul>
+      <h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.6rem;">Next 30 Days</h3>
+      <ul class="bullet-list">
+        <li>Complete Data Vendor BAA renewal — target execution before expiry</li>
+        <li>Close R-01 HIPAA gap — vendor remediation deadline set for end of month</li>
+        <li>Present Q3 compliance scorecard to General Counsel</li>
+        <li>Begin Q4 contract renewal planning — 3 MSAs due in 90 days</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-raci" onclick="closeModal('modal-raci')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div><h3 style="font-size:1rem;">RACI Matrix — Contract Review & Execution Process</h3><p style="font-size:12px;color:var(--mid);margin-top:2px;">Responsibility Assignment for Legal Operations Workflows</p></div>
+      <button class="modal-close" onclick="closeModal('modal-raci')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem;"><strong>R</strong> = Responsible &nbsp;|&nbsp; <strong>A</strong> = Accountable &nbsp;|&nbsp; <strong>C</strong> = Consulted &nbsp;|&nbsp; <strong>I</strong> = Informed</p>
+      <div style="overflow-x:auto;">
+        <table class="raci-table">
+          <thead>
+            <tr>
+              <th style="min-width:180px;">Task / Milestone</th>
+              <th style="text-align:center;">Legal Ops<br><small style="font-weight:400;">Ericka</small></th>
+              <th style="text-align:center;">Legal<br><small style="font-weight:400;">Counsel</small></th>
+              <th style="text-align:center;">Business<br><small style="font-weight:400;">Unit</small></th>
+              <th style="text-align:center;">Finance<br><small style="font-weight:400;">Team</small></th>
+              <th style="text-align:center;">Exec<br><small style="font-weight:400;">Sponsor</small></th>
+              <th style="text-align:center;">Vendor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Contract Intake & Triage</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td></tr>
+            <tr><td>Legal Review & Redline</td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td></tr>
+            <tr><td>Business Term Negotiation</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td></tr>
+            <tr><td>Compliance Review (BAA/HIPAA)</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td></tr>
+            <tr><td>Executive Sign-Off</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td></tr>
+            <tr><td>Contract Execution & Filing</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td></tr>
+            <tr><td>SLA Monitoring & Reporting</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td></tr>
+            <tr><td>Renewal & Expiry Management</td><td style="text-align:center;"><span class="raci-badge raci-R">R</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-C">C</span></td><td style="text-align:center;"><span class="raci-badge raci-A">A</span></td><td style="text-align:center;"><span class="raci-badge raci-I">I</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function showProject(id, btn) {
+    document.querySelectorAll('.project-detail').forEach(d => d.classList.remove('active'));
+    document.getElementById('proj-' + id).classList.add('active');
+    document.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  function switchKanban(id, btn) {
+    document.getElementById('kanban-contracts').style.display = id === 'contracts' ? 'block' : 'none';
+    document.getElementById('kanban-compliance').style.display = id === 'compliance' ? 'block' : 'none';
+    btn.closest('div').querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+  let dragSrc = null;
+  function kbDragStart(e) { dragSrc = e.target.closest('.kanban-card'); dragSrc.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; }
+  function kbDragOver(e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; document.querySelectorAll('.kanban-col').forEach(c => c.classList.remove('drag-over')); e.currentTarget.classList.add('drag-over'); }
+  function kbDrop(e, colId) {
+    e.preventDefault();
+    document.querySelectorAll('.kanban-col').forEach(c => c.classList.remove('drag-over'));
+    if (dragSrc) { dragSrc.classList.remove('dragging'); document.getElementById(colId).querySelector('.kanban-cards').appendChild(dragSrc); updateCounts(); dragSrc = null; }
+  }
+  document.addEventListener('dragend', () => { document.querySelectorAll('.kanban-card').forEach(c => c.classList.remove('dragging')); document.querySelectorAll('.kanban-col').forEach(c => c.classList.remove('drag-over')); });
+  function updateCounts() { document.querySelectorAll('.kanban-col').forEach(col => { const cnt = col.querySelector('.kanban-count'); if (cnt) cnt.textContent = col.querySelectorAll('.kanban-card').length; }); }
+</script>
+</body>
+</html>
